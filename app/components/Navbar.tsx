@@ -19,7 +19,7 @@ const Navbar = () => {
         />
       </div>
 
-      {/* Navigation Links */}
+      {/* Navigation links */}
       <div>
         <ul className="flex flex-row gap-11">
           {navLinks.map((link, index) => (
