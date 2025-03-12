@@ -8,7 +8,7 @@ const Navbar = () => {
 
   return (
     <nav className="flex justify-between items-center px-28 pt-6">
-      {/* Logo Section */}
+      {/* Logo section */}
       <div>
         <Image
           src={LogoDarkBlue}
