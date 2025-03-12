@@ -7,7 +7,7 @@ const Navbar = () => {
   const navLinks = ["MEN", "WOMEN", "KIDS", "COLLECTION", "TRENDS"];
 
   return (
-    <nav className="flex justify-between items-center px-28 pt-6">
+    <nav className="flex justify-between items-center px-40 pt-6">
       {/* Logo Section */}
       <div>
         <Image
