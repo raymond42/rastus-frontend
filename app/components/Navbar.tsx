@@ -15,7 +15,7 @@ const Navbar = () => {
           width={155}
           height={82}
           alt="Rastus Logo"
-          priority // Ensures the logo is loaded with high priority
+          priority
         />
       </div>
 
