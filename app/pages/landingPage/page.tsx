@@ -8,7 +8,7 @@ const LandingPage = () => {
   return (
     <div className="relative w-full h-full">
       <div className="absolute -z-10">
-        <Image src={HeroBackground} alt="hero background" />
+        <Image src={HeroBackground} alt="hero background" priority />
       </div>
       <Navbar />
       <div className="px-40 flex flex-col justify-center h-screen gap-10 w-1/2">
