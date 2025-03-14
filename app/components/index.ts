@@ -1,2 +1,4 @@
 import Navbar from "./Navbar";
-export { Navbar };
+import NewCollection from "./NewCollection";
+
+export { Navbar, NewCollection };
