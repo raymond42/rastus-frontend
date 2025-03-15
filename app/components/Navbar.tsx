@@ -7,7 +7,7 @@ const Navbar = () => {
   const navLinks = ["MEN", "WOMEN", "KIDS", "COLLECTION", "TRENDS"];
 
   return (
-    <nav className="flex justify-between items-center px-28 pt-6">
+    <nav className="flex justify-between items-center px-40 pt-6">
       {/* Logo Section */}
       <div>
         <Image
@@ -15,11 +15,11 @@ const Navbar = () => {
           width={155}
           height={82}
           alt="Rastus Logo"
-          priority // Ensures the logo is loaded with high priority
+          priority
         />
       </div>
 
-      {/* Navigation Links */}
+      {/* Navigation links */}
       <div>
         <ul className="flex flex-row gap-11">
           {navLinks.map((link, index) => (
