@@ -23,7 +23,7 @@ const NewCollection = () => {
   ];
 
   return (
-    <div className="px-40 relative flex flex-col justify-center h-screen gap-5">
+    <div className="px-40 relative flex flex-col justify-center h-screen gap-5 pt-16">
       <div className="w-full flex flex-col items-center gap-5 py-10">
         <h1
           className={`${frankRuhlLibrevBold.className} text-7xl text-primary`}
@@ -38,16 +38,18 @@ const NewCollection = () => {
       <div className="w-full flex justify-between">
         {newCollectionArray.map((item, key) => (
           <div className="w-[1/3] h-auto flex flex-col items-center" key={key}>
-            <Image
-              src={item.image}
-              alt={item.title}
-              priority
-              width={0}
-              height={0}
-              className="w-auto h-auto object-cover"
-            />
+            <div className="inline-block overflow-hidden">
+              <Image
+                src={item.image}
+                alt={item.title}
+                priority
+                width={0}
+                height={0}
+                className="w-auto h-auto object-cover hover:scale-110 duration-500 transition-transform cursor-pointer"
+              />
+            </div>
             <button
-              className={`${frankRuhlLibrevBold.className} text-primary text-[18px] bg-white h-16 relative w-9/12 bottom-20 flex justify-center items-center`}
+              className={`${frankRuhlLibrevBold.className} text-primary text-[18px] bg-white h-16 relative w-9/12 bottom-20 flex justify-center items-center hover:bg-primary hover:text-white`}
             >
               {item.title}
             </button>
