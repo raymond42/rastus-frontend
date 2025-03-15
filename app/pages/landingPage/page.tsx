@@ -21,13 +21,11 @@ const LandingPage = () => {
         </div>
         <div className="px-40 flex flex-col justify-center h-screen gap-10 w-1/2">
           <h1
-            className={`${frankRuhlLibrevBold.className} text-[78px] font-bold text-primary leading-[90px]`}
+            className={`${frankRuhlLibrevBold.className} text-7xl font-bold text-primary leading-[90px]`}
           >
             Find the Best Fashion Style For You
           </h1>
-          <p
-            className={`${frankRuhlLibrev.className} text-[22px] text-primary`}
-          >
+          <p className={`${frankRuhlLibrev.className} text-xl text-primary`}>
             Upgrade Your Wardrobe with the Timeless Elegance of Clothes: Elevate
             Your Style Game Now with Rastus!
           </p>
