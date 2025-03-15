@@ -1,10 +1,9 @@
-import { NewCollection } from "./components";
-import { LandingPage } from "./pages";
+import { Hero, NewCollection } from "./components";
 
 export default function Home() {
   return (
     <>
-      <LandingPage />
+      <Hero />
       <NewCollection />
     </>
   );
