@@ -23,7 +23,7 @@ const NewCollection = () => {
   ];
 
   return (
-    <div className="px-40 relative flex flex-col justify-center h-screen gap-5 pt-16">
+    <div className="px-40 relative flex flex-col justify-center h-screen gap-5 pt-16 bg-lightBrown-50">
       <div className="w-full flex flex-col items-center gap-5 py-10">
         <h1
           className={`${frankRuhlLibrevBold.className} text-7xl text-primary`}
@@ -35,7 +35,7 @@ const NewCollection = () => {
           Must-Have!
         </p>
       </div>
-      <div className="w-full flex justify-between">
+      <div className="w-full flex justify-between z-20">
         {newCollectionArray.map((item, key) => (
           <div className="w-[1/3] h-auto flex flex-col items-center" key={key}>
             <div className="inline-block overflow-hidden">
@@ -56,7 +56,7 @@ const NewCollection = () => {
           </div>
         ))}
       </div>
-      <div className="bg-lightBrown w-[388px] h-[292px] absolute bottom-0 right-0 -z-10">
+      <div className="bg-white w-[388px] h-[292px] absolute bottom-0 right-0">
         <Image
           src={SquaredDots}
           alt="squared dots"
