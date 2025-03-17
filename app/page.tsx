@@ -1,10 +1,11 @@
-import { Hero, NewCollection } from "./components";
+import { About, Hero, NewCollection } from "./components";
 
 export default function Home() {
   return (
     <>
       <Hero />
       <NewCollection />
+      <About />
     </>
   );
 }
