@@ -10,7 +10,10 @@ const config: Config = {
     extend: {
       colors: {
         primary: "#001F3F",
-        lightBrown: "#EEDDCC",
+        lightBrown: {
+          50: "#FDFBF8",
+          100: "#DBCCBC",
+        },
       },
     },
   },
