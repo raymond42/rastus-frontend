@@ -4,7 +4,7 @@ import { frankRuhlLibrevBold } from "@/app/utils/fonts";
 import clsx from "clsx";
 
 type ButtonProps = {
-  title: string;
+  children?: React.ReactNode;
   backgroundColor?: string;
   borderColor?: string;
   textColor?: string;
@@ -15,7 +15,6 @@ type ButtonProps = {
 };
 
 const Button = ({
-  title,
   textColor = "white",
   backgroundColor = "transparent",
   borderColor = "black",
@@ -23,6 +22,7 @@ const Button = ({
   width = "",
   height = "",
   className = "",
+  children,
 }: ButtonProps) => {
   return (
     <button
@@ -35,10 +35,11 @@ const Button = ({
         width,
         height,
         backgroundColor,
+        "flex items-center justify-center gap-2", // Flexbox for icon + text alignment
         className
       )}
     >
-      {title}
+      {children}
     </button>
   );
 };

@@ -19,14 +19,15 @@ const BestSeller = () => {
             ullamcorper congue eros
           </p>
           <Button
-            title="SEE MORE"
             textColor="text-white"
             textSize="text-[14px]"
             borderColor="white"
             width="w-48"
             height="h-16"
             className="hover:bg-white hover:text-primary"
-          />
+          >
+            SEE MORE
+          </Button>
         </div>
         <div className="flex gap-6 pt-32 pl-16">
           {[...Array(3)].map((product, key) => (
