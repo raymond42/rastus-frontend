@@ -1,4 +1,10 @@
-import { About, Hero, NewCollection } from "./components";
+import {
+  About,
+  BestSeller,
+  Hero,
+  NewCollection,
+  OurProducts,
+} from "./components";
 
 export default function Home() {
   return (
@@ -6,6 +12,8 @@ export default function Home() {
       <Hero />
       <NewCollection />
       <About />
+      <BestSeller />
+      <OurProducts />
     </>
   );
 }

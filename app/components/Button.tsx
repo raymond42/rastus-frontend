@@ -1,17 +1,45 @@
 "use client";
 import React from "react";
 import { frankRuhlLibrevBold } from "@/app/utils/fonts";
+import clsx from "clsx";
 
 type ButtonProps = {
-  title: string;
+  children?: React.ReactNode;
+  backgroundColor?: string;
+  borderColor?: string;
+  textColor?: string;
+  textSize?: string;
+  width?: string;
+  height?: string;
+  className?: string;
 };
 
-const Button = ({ title }: ButtonProps) => {
+const Button = ({
+  textColor = "white",
+  backgroundColor = "transparent",
+  borderColor = "black",
+  textSize = "base",
+  width = "",
+  height = "",
+  className = "",
+  children,
+}: ButtonProps) => {
   return (
     <button
-      className={`${frankRuhlLibrevBold.className} text-primary text-[18px] bg-white h-16 relative w-9/12 bottom-20 flex justify-center items-center hover:bg-primary hover:text-white`}
+      className={clsx(
+        frankRuhlLibrevBold.className,
+        "border-2",
+        textColor,
+        textSize,
+        borderColor,
+        width,
+        height,
+        backgroundColor,
+        "flex items-center justify-center gap-2", // Flexbox for icon + text alignment
+        className
+      )}
     >
-      {title}
+      {children}
     </button>
   );
 };
