@@ -18,7 +18,7 @@ const DealOfTheDay = () => {
           </h1>
           <p className={`${frankRuhlLibrev.className} text-primary text-lg`}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-            ullamcorper congue erosget tincidunt{" "}
+            ullamcorper congue erosget tincidunt
           </p>
           <DealTime />
           <Button
