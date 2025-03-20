@@ -2,7 +2,6 @@ import React from "react";
 import { frankRuhlLibrev, frankRuhlLibrevBold } from "../utils/fonts";
 import Button from "./Button";
 import ProductCard from "./ProductCard";
-import BestSellerCardSlider from "./BestSellerCardSlider";
 
 const BestSeller = () => {
   return (
