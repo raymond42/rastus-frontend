@@ -22,7 +22,7 @@ const ProductCard = ({ name, price }: ProductCardProps) => {
           className="w-full h-full object-cover rounded-t-md"
         />
       </div>
-      <div className="p-6 flex flex-col gap-4 box-border">
+      <div className="p-6 flex items-center flex-col gap-4 box-border">
         {" "}
         {/* Added box-sizing */}
         <StarRate />

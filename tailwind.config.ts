@@ -11,8 +11,9 @@ const config: Config = {
       colors: {
         primary: "#001F3F",
         lightBrown: {
-          50: "#FDFBF8",
-          100: "#DBCCBC",
+          20: "#FDFBF8",
+          50: "#DBCCBC",
+          100: "#EEDDCC",
         },
       },
     },
