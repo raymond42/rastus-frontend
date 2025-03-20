@@ -1,9 +1,11 @@
 import {
   About,
   BestSeller,
+  DealOfTheDay,
   Hero,
   NewCollection,
   OurProducts,
+  WhatPeopleSay,
 } from "./components";
 
 export default function Home() {
@@ -14,6 +16,8 @@ export default function Home() {
       <About />
       <BestSeller />
       <OurProducts />
+      <DealOfTheDay />
+      <WhatPeopleSay />
     </>
   );
 }
