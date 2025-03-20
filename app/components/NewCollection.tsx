@@ -23,7 +23,7 @@ const NewCollection = () => {
   ];
 
   return (
-    <div className="px-40 relative flex flex-col justify-center h-screen gap-5 pt-16 bg-lightBrown-50">
+    <div className="px-40 relative flex flex-col justify-center h-screen gap-5 pt-16 bg-lightBrown-20">
       <div className="w-full flex flex-col items-center gap-5 py-10">
         <h1
           className={`${frankRuhlLibrevBold.className} text-7xl text-primary`}

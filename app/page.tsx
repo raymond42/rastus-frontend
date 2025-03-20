@@ -1,6 +1,7 @@
 import {
   About,
   BestSeller,
+  DealOfTheDay,
   Hero,
   NewCollection,
   OurProducts,
@@ -14,6 +15,7 @@ export default function Home() {
       <About />
       <BestSeller />
       <OurProducts />
+      <DealOfTheDay />
     </>
   );
 }
