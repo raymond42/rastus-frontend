@@ -9,21 +9,23 @@ const BestSeller = () => {
       <div className="bg-primary flex items-center pl-[151px] h-screen overflow-hidden">
         <div className="flex flex-col gap-6">
           <h1
-            className={`${frankRuhlLibrevBold.className} text-[52px] text-white`}
+            className={`${frankRuhlLibrevBold.className} text-[52px] text-white-primary`}
           >
             Best Seller Product
           </h1>
-          <p className={`${frankRuhlLibrev.className} text-[20px] text-white`}>
+          <p
+            className={`${frankRuhlLibrev.className} text-[20px] text-white-primary`}
+          >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
             ullamcorper congue eros
           </p>
           <Button
-            textColor="text-white"
+            textColor="text-white-primary"
             textSize="text-[14px]"
-            borderColor="white"
+            borderColor="white-primary"
             width="w-48"
             height="h-16"
-            className="hover:bg-white hover:text-primary"
+            className="hover:bg-white-primary hover:text-primary"
           >
             SEE MORE
           </Button>

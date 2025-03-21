@@ -24,7 +24,7 @@ const DealOfTheDay = () => {
           <Button
             width="w-[223px]"
             height="h-[64px]"
-            textColor="text-white"
+            textColor="text-white-primary"
             backgroundColor="bg-primary"
             borderColor="border-primary"
             className="hover:bg-transparent hover:text-primary hover:border mt-5 cursor-pointer"

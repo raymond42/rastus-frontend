@@ -49,14 +49,14 @@ const NewCollection = () => {
               />
             </div>
             <button
-              className={`${frankRuhlLibrevBold.className} text-primary text-[18px] bg-white h-16 relative w-9/12 bottom-20 flex justify-center items-center hover:bg-primary hover:text-white`}
+              className={`${frankRuhlLibrevBold.className} text-primary text-[18px] bg-white-primary h-16 relative w-9/12 bottom-20 flex justify-center items-center hover:bg-primary hover:text-white-primary`}
             >
               {item.title}
             </button>
           </div>
         ))}
       </div>
-      <div className="bg-white w-[388px] h-[292px] absolute bottom-0 right-0">
+      <div className="bg-white-primary w-[388px] h-[292px] absolute bottom-0 right-0">
         <Image
           src={SquaredDots}
           alt="squared dots"

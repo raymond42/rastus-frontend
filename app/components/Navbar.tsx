@@ -7,7 +7,7 @@ const Navbar = () => {
   const navLinks = ["MEN", "WOMEN", "KIDS", "COLLECTION", "TRENDS"];
 
   return (
-    <nav className="flex justify-between items-center px-40 h-28 fixed w-full bg-white border-b top-0 z-50">
+    <nav className="flex justify-between items-center px-40 h-28 fixed w-full bg-white-primary border-b top-0 z-50">
       {/* Logo Section */}
       <div>
         <Image
@@ -36,14 +36,14 @@ const Navbar = () => {
       {/* Cart and Login Section */}
       <div className="flex gap-10 items-center">
         <div className="relative">
-          <div className="text-white font-extrabold bg-red-600 flex items-center justify-center rounded-full h-5 w-5 text-[10px] absolute right-0 top-1 z-10">
+          <div className="text-white-primary font-extrabold bg-red-600 flex items-center justify-center rounded-full h-5 w-5 text-[10px] absolute right-0 top-1 z-10">
             1
           </div>
           <div className="relative">
             <CiShoppingCart className="w-11 h-12 cursor-pointer font-bold hover:text-gray-500 transition-colors" />
           </div>
         </div>
-        <button className="border border-primary font-bold text-primary rounded hover:bg-primary hover:text-white transition-colors w-[108px] h-[45px]">
+        <button className="border border-primary font-bold text-primary rounded hover:bg-primary hover:text-white-primary transition-colors w-[108px] h-[45px]">
           LOGIN
         </button>
       </div>

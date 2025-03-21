@@ -4,7 +4,7 @@ import { frankRuhlLibrev, frankRuhlLibrevBold } from "../utils/fonts";
 const DealTime = () => {
   return (
     <div className="flex gap-5">
-      <div className="bg-white py-3 px-7 gap-1 flex flex-col items-center">
+      <div className="bg-white-primary py-3 px-7 gap-1 flex flex-col items-center">
         <p
           className={`${frankRuhlLibrevBold.className} text-[42px] text-primary`}
         >
@@ -14,7 +14,7 @@ const DealTime = () => {
           Days
         </p>
       </div>
-      <div className="bg-white py-3 px-7 gap-1 flex flex-col items-center">
+      <div className="bg-white-primary py-3 px-7 gap-1 flex flex-col items-center">
         <p
           className={`${frankRuhlLibrevBold.className} text-[42px] text-primary`}
         >
@@ -24,7 +24,7 @@ const DealTime = () => {
           Hours
         </p>
       </div>
-      <div className="bg-white py-3 px-7 gap-1 flex flex-col items-center">
+      <div className="bg-white-primary py-3 px-7 gap-1 flex flex-col items-center">
         <p
           className={`${frankRuhlLibrevBold.className} text-[42px] text-primary`}
         >

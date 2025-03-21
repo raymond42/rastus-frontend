@@ -15,6 +15,10 @@ const config: Config = {
           50: "#DBCCBC",
           100: "#EEDDCC",
         },
+        white: {
+          primary: "#FFFFFF",
+          secondary: "#EFEFEF",
+        },
       },
     },
   },
