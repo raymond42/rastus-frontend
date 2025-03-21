@@ -2,6 +2,7 @@ import {
   About,
   BestSeller,
   DealOfTheDay,
+  Footer,
   Hero,
   NewCollection,
   OurProducts,
@@ -18,6 +19,7 @@ export default function Home() {
       <OurProducts />
       <DealOfTheDay />
       <WhatPeopleSay />
+      <Footer />
     </>
   );
 }
