@@ -8,53 +8,66 @@ import SquaredDots from "@/public/newCollection/squared-dots.svg";
 
 const DealOfTheDay = () => {
   return (
-    <div className="flex items-center justify-center h-screen">
-      <div className="bg-lightBrown-100 w-[80%] h-[60%] mt-10  flex">
-        <div className="flex flex-col gap-6 w-1/2 p-[80px] pl-[160px]">
+    <div className="flex items-center justify-center min-h-screen w-full px-3 sm:px-8">
+      <div className="bg-lightBrown-100 w-full max-w-6xl flex flex-col sm:flex-row items-center sm:h-[60vh] rounded-lg shadow-lg sm:relative">
+        {/* Left Content Section */}
+        <div className="flex flex-col gap-6 sm:w-1/2 w-full p-6 sm:p-16">
           <h1
-            className={`${frankRuhlLibrevBold.className} text-5xl text-primary`}
+            className={`${frankRuhlLibrevBold.className} text-4xl sm:text-5xl text-primary`}
           >
             Deal Of The Day
           </h1>
-          <p className={`${frankRuhlLibrev.className} text-primary text-lg`}>
+          <p
+            className={`${frankRuhlLibrev.className} text-primary text-base sm:text-lg`}
+          >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-            ullamcorper congue erosget tincidunt
+            ullamcorper congue eros get tincidunt.
           </p>
-          <DealTime />
+          <div className="sm:w-[350px] w-full">
+            <DealTime />
+          </div>
           <Button
-            width="w-[223px]"
-            height="h-[64px]"
-            textColor="text-white-primary"
+            width="w-full sm:w-[223px]"
+            height="h-[50px] sm:h-[64px]"
+            textColor="text-white"
             backgroundColor="bg-primary"
             borderColor="border-primary"
-            className="hover:bg-transparent hover:text-primary hover:border mt-5 cursor-pointer"
+            className="hover:bg-transparent hover:text-primary text-white-primary hover:border mt-4 sm:mt-5 cursor-pointer"
           >
             SHOP NOW
           </Button>
         </div>
-        <div className="w-1/2 flex justify-center items-center relative">
-          <div className="absolute top-0 right-0 w-[60%] h-[60%]">
-            <div className="bg-lightBrown-50  w-[60%] h-[100%] absolute  right-0">
+
+        {/* Right Image Section */}
+        <div className="relative sm:absolute sm:right-0 top-0 sm:w-1/2 w-full h-full flex justify-center items-center">
+          {/* Background Dots */}
+          <div
+            className="absolute top-0 right-0 sm:w-[60%] w-full h-[70%]"
+            aria-hidden="true"
+          >
+            <div className="bg-lightBrown-50 w-full h-full sm:absolute right-0">
               <Image
                 src={SquaredDots}
-                alt="Squared dots"
-                className="absolute -bottom-16 z-30"
-                width={0}
-                height={0}
+                alt="Decorative squared dots"
+                className="absolute -bottom-12 right-16 z-30"
+                width={100}
+                height={100}
                 priority
               />
             </div>
           </div>
-          <div className="relative">
+
+          {/* Cap Image */}
+          <div className="relative self-center">
             <Image
               src={customizedCap}
               priority
-              alt="customized cap"
-              width={0}
-              height={0}
-              className="w-[400px] h-[460px]"
+              alt="Customized cap"
+              width={400}
+              height={460}
+              className="w-[80%] sm:w-[400px] h-auto max-h-[460px] object-cover"
             />
-            <div className="w-[400px] h-[460px] hover:bg-black hover:bg-opacity-25 absolute top-0 cursor-pointer"></div>
+            <div className="absolute inset-0 hover:bg-opacity-25 cursor-pointer transition-opacity duration-300"></div>
           </div>
         </div>
       </div>

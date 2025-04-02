@@ -14,31 +14,27 @@ const CardSlider = () => {
     "--swiper-pagination-color": "#001F3F",
     "--swiper-pagination-bullet-size": "11px",
     "--swiper-pagination-bullet-inactive-color": "transparent",
-  };
+  } as React.CSSProperties;
+
+  const cards = [...Array(6)];
+
   return (
-    <div className="flex items-center justify-center flex-col z-50">
+    <div className="flex flex-col items-center justify-center w-full z-50">
       <Swiper
         breakpoints={{
-          340: {
-            slidesPerView: 2,
-            spaceBetween: 15,
-          },
-          700: {
-            slidesPerView: 3,
-            spaceBetween: 20,
-          },
+          0: { slidesPerView: 1, spaceBetween: 10 }, // Mobile: 1 card per view
+          640: { slidesPerView: 2, spaceBetween: 15 }, // Tablet: 2 cards per view
+          1024: { slidesPerView: 3, spaceBetween: 20 }, // Larger screens: 3 cards per view
         }}
-        freeMode={true}
-        pagination={{
-          clickable: true,
-        }}
-        style={swiperStyles as React.CSSProperties}
+        freeMode
+        pagination={{ clickable: true }}
+        style={swiperStyles}
         modules={[FreeMode, Pagination]}
-        className="max-w-[100%]"
+        className="w-full"
       >
-        {[...Array(6)].map((_, key) => (
+        {cards.map((_, key) => (
           <SwiperSlide key={key}>
-            <div className="pb-20 flex flex-col items-center gap-6 bg-lightBrown-100 p-10 mb-20 rounded-lg cursor-pointer">
+            <div className="pb-20 flex flex-col items-center gap-6 bg-lightBrown-100 p-10 sm:mb-20 mb-14 rounded-lg cursor-pointer">
               <p
                 className={`${frankRuhlLibrevBold.className} text-[18px] leading-[157%] text-primary text-center`}
               >
@@ -49,17 +45,15 @@ const CardSlider = () => {
                 className={`${frankRuhlLibrev.className} text-[14px] leading-[30px] opacity-75 text-center`}
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                lacus, auctor pretium ac ultrices. Dui lacus dignissim tincidunt
-                urna, at enim tempo. Pellentesque amet Lorem ipsum dolor sit
-                amet
+                lacus, auctor pretium ac ultrices.
               </p>
               <div className="flex flex-col justify-center items-center pt-2 gap-2">
                 <Image
                   src={profileAvatar}
                   alt="profile picture"
-                  width={0}
-                  height={0}
-                  className="rounded-full w-[77px] h-[77px]"
+                  width={77}
+                  height={77}
+                  className="rounded-full"
                 />
                 <h1
                   className={`${frankRuhlLibrevBold.className} text-[16px] text-primary`}
