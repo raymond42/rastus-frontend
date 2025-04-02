@@ -13,7 +13,7 @@ type ProductCardProps = {
 
 const ProductCard = ({ name, price }: ProductCardProps) => {
   return (
-    <div className="bg-white rounded-md w-[363px] h-auto">
+    <div className="bg-white-primary rounded-md w-[363px] h-auto">
       <div className="w-full h-[387px]">
         <Image
           src={customizedHoodie}
@@ -36,7 +36,7 @@ const ProductCard = ({ name, price }: ProductCardProps) => {
         </p>
         <Button
           width="w-full"
-          className={`${frankRuhlLibrev.className} py-2 bg-primary text-white hover:text-primary hover:bg-transparent hover:border hover:border-primary`}
+          className={`${frankRuhlLibrev.className} py-2 bg-primary text-white-primary hover:text-primary hover:bg-transparent hover:border hover:border-primary`}
         >
           <FaShoppingCart className="mr-2" /> ADD TO CART
         </Button>

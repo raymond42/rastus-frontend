@@ -15,7 +15,7 @@ const Hero = () => {
           className="max-h-screen"
         />
       </div>
-      <div className="absolute bg-white w-full">
+      <div className="absolute bg-white-primary w-full">
         <Navbar />
       </div>
       <div className="px-40 flex flex-col justify-center h-screen gap-10 w-1/2">
@@ -29,7 +29,7 @@ const Hero = () => {
           Your Style Game Now with Rastus!
         </p>
         <button
-          className={`${frankRuhlLibrev.className} text-[18px] border border-primary text-white bg-primary hover:bg-transparent hover:text-primary w-[223px] h-[64px] rounded transition-colors`}
+          className={`${frankRuhlLibrev.className} text-[18px] border border-primary text-white-primary bg-primary hover:bg-transparent hover:text-primary w-[223px] h-[64px] rounded transition-colors`}
         >
           SHOP NOW
         </button>

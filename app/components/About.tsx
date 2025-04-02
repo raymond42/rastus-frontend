@@ -82,7 +82,9 @@ const About: React.FC = () => {
           <div
             key={index}
             className={`text-center w-full ${
-              index !== stats.length - 1 ? "border-r border-white/20" : ""
+              index !== stats.length - 1
+                ? "border-r border-white-primary/20"
+                : ""
             }`}
           >
             <h1
