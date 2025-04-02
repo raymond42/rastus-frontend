@@ -23,7 +23,7 @@ const NewCollection = () => {
   ];
 
   return (
-    <div className="px-40 relative flex flex-col justify-center h-screen gap-5">
+    <div className="px-40 relative flex flex-col justify-center h-screen gap-5 pt-16 bg-lightBrown-20">
       <div className="w-full flex flex-col items-center gap-5 py-10">
         <h1
           className={`${frankRuhlLibrevBold.className} text-7xl text-primary`}
@@ -35,26 +35,28 @@ const NewCollection = () => {
           Must-Have!
         </p>
       </div>
-      <div className="w-full flex justify-between">
+      <div className="w-full flex justify-between z-20">
         {newCollectionArray.map((item, key) => (
           <div className="w-[1/3] h-auto flex flex-col items-center" key={key}>
-            <Image
-              src={item.image}
-              alt={item.title}
-              priority
-              width={0}
-              height={0}
-              className="w-auto h-auto object-cover"
-            />
+            <div className="inline-block overflow-hidden">
+              <Image
+                src={item.image}
+                alt={item.title}
+                priority
+                width={0}
+                height={0}
+                className="w-auto h-auto object-cover hover:scale-110 duration-500 transition-transform cursor-pointer"
+              />
+            </div>
             <button
-              className={`${frankRuhlLibrevBold.className} text-primary text-[18px] bg-white h-16 relative w-9/12 bottom-20 flex justify-center items-center`}
+              className={`${frankRuhlLibrevBold.className} text-primary text-[18px] bg-white-primary h-16 relative w-9/12 bottom-20 flex justify-center items-center hover:bg-primary hover:text-white-primary`}
             >
               {item.title}
             </button>
           </div>
         ))}
       </div>
-      <div className="bg-lightBrown w-[388px] h-[292px] absolute bottom-0 right-0 -z-10">
+      <div className="bg-white-primary w-[388px] h-[292px] absolute bottom-0 right-0">
         <Image
           src={SquaredDots}
           alt="squared dots"
