@@ -6,21 +6,21 @@ import { frankRuhlLibrev, frankRuhlLibrevBold } from "@/app/utils/fonts";
 
 const Hero = () => {
   return (
-    <div className="relative w-full max-h-screen pt-10">
-      <div className="absolute -z-10">
+    <div className="relative w-full max-h-screen h-full pt-10">
+      <div className="absolute -z-10 border h-full w-full">
         <Image
           src={HeroBackground}
           alt="hero background"
           priority
-          className="max-h-screen"
+          className="sm:max-h-screen h-full object-cover object-[5px]"
         />
       </div>
       <div className="absolute bg-white-primary w-full">
         <Navbar />
       </div>
-      <div className="px-40 flex flex-col justify-center h-screen gap-10 w-1/2">
+      <div className="sm:px-40 px-3 flex flex-col justify-center items-center text-center h-screen gap-10 sm:w-1/2">
         <h1
-          className={`${frankRuhlLibrevBold.className} text-7xl font-bold text-primary leading-[100px]`}
+          className={`${frankRuhlLibrevBold.className} sm:text-7xl text-5xl font-bold text-primary sm:leading-[100px]`}
         >
           Find the Best Fashion Style For You
         </h1>

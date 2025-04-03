@@ -5,7 +5,7 @@ import ProductCard from "./ProductCard";
 
 const OurProducts = () => {
   return (
-    <div className="flex flex-col gap-10 items-center p-16 bg-lightBrown-50">
+    <div className="flex flex-col gap-10 items-center sm:p-16 p-3 bg-lightBrown-50">
       <h1
         className={`${frankRuhlLibrevBold.className} text-primary text-[48px]`}
       >

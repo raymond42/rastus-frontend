@@ -39,9 +39,9 @@ const workingHours = [
 
 const Footer = () => {
   return (
-    <footer className="flex flex-wrap gap-40 justify-between w-full p-10 md:p-20 bg-primary text-lightBrown-20">
+    <footer className="flex sm:flex-row flex-col flex-wrap gap-10 md:gap-40 justify-between w-full p-6 md:p-20 bg-primary text-lightBrown-20">
       {/* Left Section: Logo & Contact Info */}
-      <div className="flex flex-col gap-10 max-w-xs">
+      <div className="flex flex-col items-center sm:items-start gap-6 max-w-xs w-full sm:w-auto">
         <div>
           <Image
             src={logoWithNoBackground}
@@ -51,7 +51,7 @@ const Footer = () => {
             priority
           />
         </div>
-        <div className="flex flex-col gap-6 py-2">
+        <div className="flex flex-col gap-4 py-2 text-center sm:text-left">
           <address className={`${jost.className} text-sm not-italic`}>
             Calista Wise 7292 Dictum Av. Antonio, Italy.
           </address>
@@ -62,8 +62,8 @@ const Footer = () => {
       </div>
 
       {/* Middle Section: Social Icons & Footer Links */}
-      <div className="flex flex-col gap-10 py-6">
-        <div className="flex gap-6">
+      <div className="flex flex-col gap-6 py-6 text-center sm:text-left">
+        <div className="flex justify-center sm:justify-start gap-4">
           {socialIcons.map(({ icon, label }, index) => (
             <span
               key={index}
@@ -74,7 +74,7 @@ const Footer = () => {
             </span>
           ))}
         </div>
-        <ul className="flex flex-col gap-6">
+        <ul className="flex flex-col gap-4">
           {footerLinks1.map((link, index) => (
             <li key={index} className={`${jost.className} text-sm`}>
               {link}
@@ -84,8 +84,8 @@ const Footer = () => {
       </div>
 
       {/* Right Section: Newsletter Subscription */}
-      <div className="flex-grow flex flex-col gap-10">
-        <div className="relative flex gap-2 items-center overflow-hidden">
+      <div className="flex-grow flex flex-col gap-6 w-full sm:w-auto">
+        <div className="relative flex sm:flex-row flex-col gap-2 items-center overflow-hidden">
           <input
             id="userInput"
             type="email"
@@ -93,17 +93,17 @@ const Footer = () => {
             className="w-full text-white-primary border outline-none px-3 bg-transparent h-10"
             aria-label="Enter your email for subscription"
           />
-          <div className="bg-white-primary hover:bg-opacity-75">
+          <div className="bg-white-primary hover:bg-opacity-75 w-full sm:w-auto">
             <button
-              className={`${jostSemiBold.className} text-primary text-[12px] leading-[16.8px] tracking-[2px] px-6 h-10 flex items-center justify-center hover:transition-transform duration-500 transition-all hover:scale-110`}
+              className={`${jostSemiBold.className} text-primary w-full text-[12px] leading-[16.8px] tracking-[2px] px-6 h-10 flex items-center justify-center hover:transition-transform duration-500 transition-all hover:scale-110`}
             >
               SUBSCRIBE
             </button>
           </div>
         </div>
-        <div className="flex gap-40">
-          <div>
-            <ul className="flex flex-col gap-6 py-2">
+        <div className="flex flex-wrap justify-between gap-6">
+          <div className="w-full sm:w-auto">
+            <ul className="flex w-full items-center flex-col gap-4 py-2">
               {footerLinks2.map((link, index) => (
                 <li key={index} className={`${jost.className} text-sm`}>
                   {link}
@@ -111,14 +111,14 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-          {/* add table logic here */}
-          <div className="flex flex-col flex-grow">
+          {/* Working Hours & Payment Icons */}
+          <div className="flex flex-col w-full sm:w-auto">
             {workingHours.map((item, key) => (
               <div
                 key={key}
                 className={`${
                   key - 2 ? "border-b" : "border-none"
-                }  w-full flex justify-between py-2`}
+                } flex justify-between py-2 text-center sm:text-left`}
               >
                 <p
                   className={`${jost.className} text-[14px] text-white-secondary`}
@@ -132,7 +132,7 @@ const Footer = () => {
                 </p>
               </div>
             ))}
-            <div className="flex justify-end gap-6 pt-10">
+            <div className="flex justify-center sm:justify-end gap-4 pt-6">
               <Image
                 src={visaIcon}
                 alt="visa"
@@ -142,7 +142,7 @@ const Footer = () => {
               />
               <Image
                 src={mastercarIcon}
-                alt="masterard"
+                alt="mastercard"
                 width={0}
                 height={0}
                 className="h-auto w-[45px]"
