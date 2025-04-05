@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { frankRuhlLibrevBold } from "../utils/fonts";
 import ProductNavItems from "./ProductNavItems";
