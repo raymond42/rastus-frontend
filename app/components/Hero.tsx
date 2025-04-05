@@ -6,7 +6,7 @@ import { frankRuhlLibrev, frankRuhlLibrevBold } from "@/app/utils/fonts";
 
 const Hero = () => {
   return (
-    <div className="relative w-full max-h-screen h-full pt-10">
+    <div className="relative w-full min-h-screen flex items-center sm:h-full h-screen pt-10">
       <div className="absolute -z-10 border h-full w-full">
         <Image
           src={HeroBackground}
@@ -18,7 +18,7 @@ const Hero = () => {
       <div className="absolute bg-white-primary w-full">
         <Navbar />
       </div>
-      <div className="sm:px-40 px-3 flex flex-col justify-center items-center text-center h-screen gap-10 sm:w-1/2">
+      <div className="sm:px-40 px-3 sm:pt-0 pt-28 flex flex-col justify-center items-center text-center h-full gap-10 sm:w-1/2">
         <h1
           className={`${frankRuhlLibrevBold.className} sm:text-7xl text-5xl font-bold text-primary sm:leading-[100px]`}
         >
