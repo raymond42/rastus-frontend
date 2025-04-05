@@ -23,7 +23,7 @@ const NewCollection = () => {
   ];
 
   return (
-    <div className="sm:px-40 relative flex flex-col sm:justify-center text-center gap-5 sm:pt-16 bg-lightBrown-20 h-full">
+    <div className="sm:px-40 pt-10 relative flex flex-col sm:justify-center text-center gap-5 sm:pt-16 bg-lightBrown-20 h-full">
       <div className="w-full flex flex-col items-center gap-5 sm:py-10 py-3">
         <h1
           className={`${frankRuhlLibrevBold.className} sm:text-7xl text-5xl text-primary`}
