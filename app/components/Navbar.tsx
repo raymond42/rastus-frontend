@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import LogoDarkBlue from "@/public/rastus-dark-blue-logo.png";
 import Image from "next/image";
 import { CiShoppingCart, CiMenuBurger } from "react-icons/ci";
@@ -18,39 +18,15 @@ const Navbar = () => {
     { label: "COLLECTION", href: "#" },
     { label: "TRENDS", href: "#" },
   ];
-
+  // const navItems = ["MEN", "WOMEN", "KIDS", "COLLECTION", "TRENDS"];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [hasScrolled, setHasScrolled] = useState(false);
 
   const handleClickMenuBurger = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleScroll = () => {
-    if (window.scrollY > 0) {
-      setHasScrolled(true);
-    } else {
-      setHasScrolled(false);
-    }
-  };
-
-  useEffect(() => {
-    // Add scroll event listener
-    window.addEventListener("scroll", handleScroll);
-
-    // Clean up the event listener on component unmount
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
-    <nav
-      className={`flex justify-between items-center sm:px-40 h-28 fixed w-full bg-white-primary top-0 z-50 ${
-        hasScrolled ? "border-b" : ""
-      }`}
-    >
-      {" "}
+    <nav className="flex justify-between items-center sm:px-40 h-28 fixed w-full bg-white-primary border-b top-0 z-50">
       {/* Logo Section */}
       <div>
         <Image
@@ -71,6 +47,7 @@ const Navbar = () => {
           />
         </div>
       )}
+
       {/* Navigation links */}
       <div className="hidden sm:block">
         <ul className="flex flex-row gap-11">
@@ -84,6 +61,7 @@ const Navbar = () => {
           ))}
         </ul>
       </div>
+
       {/* Cart and Login Section */}
       <div className="flex gap-10 items-center">
         <div className="relative">
