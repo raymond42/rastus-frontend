@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import { frankRuhlLibrev, frankRuhlLibrevBold } from "../utils/fonts";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
 
 const productNavItems = ["HOT", "ON SALE", "TRENDING NOW", "NEW ARRIVAL"];
 
@@ -12,7 +14,7 @@ const ProductNavItems = () => {
       {productNavItems.map((navItem, index) => (
         <li
           key={index}
-          className={`cursor-pointer transition-all ${
+          className={`cursor-pointer transition-all text-[11px] sm:text-[16px] ${
             activeIndex === index
               ? `${frankRuhlLibrevBold.className} underline`
               : frankRuhlLibrev.className
