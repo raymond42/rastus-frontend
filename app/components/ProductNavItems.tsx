@@ -1,8 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import { frankRuhlLibrev, frankRuhlLibrevBold } from "../utils/fonts";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
 
 const productNavItems = ["HOT", "ON SALE", "TRENDING NOW", "NEW ARRIVAL"];
 
