@@ -1,10 +1,29 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import LogoDarkBlue from "@/public/rastus-dark-blue-logo.png";
 import Image from "next/image";
 import { CiShoppingCart, CiMenuBurger } from "react-icons/ci";
+import MobileMenuItems from "./MobileMenuItems";
+
+type MenuItem = {
+  label: string;
+  href: string;
+};
 
 const Navbar = () => {
-  const navLinks = ["MEN", "WOMEN", "KIDS", "COLLECTION", "TRENDS"];
+  const navItems: MenuItem[] = [
+    { label: "MEN", href: "#" },
+    { label: "WOMEN", href: "#" },
+    { label: "KIDS", href: "#" },
+    { label: "COLLECTION", href: "#" },
+    { label: "TRENDS", href: "#" },
+  ];
+  // const navItems = ["MEN", "WOMEN", "KIDS", "COLLECTION", "TRENDS"];
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleClickMenuBurger = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <nav className="flex justify-between items-center sm:px-40 h-28 fixed w-full bg-white-primary border-b top-0 z-50">
@@ -19,16 +38,25 @@ const Navbar = () => {
           className="sm:w-[155px] sm:h-[82px] w-[120px] h-[64px] object-contain cursor-pointer"
         />
       </div>
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="">
+          <MobileMenuItems
+            menuItems={navItems}
+            onClose={() => setIsMenuOpen(false)}
+          />
+        </div>
+      )}
 
       {/* Navigation links */}
       <div className="hidden sm:block">
         <ul className="flex flex-row gap-11">
-          {navLinks.map((link, index) => (
+          {navItems.map((item, index) => (
             <li
               key={index}
               className="text-primary text-[16px] font-bold hover:text-gray-500 transition-colors cursor-pointer"
             >
-              {link}
+              {item.label}
             </li>
           ))}
         </ul>
@@ -48,7 +76,7 @@ const Navbar = () => {
           LOGIN
         </button>
         <div className="sm:hidden block pr-3">
-          <CiMenuBurger className="w-11 h-12" />
+          <CiMenuBurger className="w-11 h-12" onClick={handleClickMenuBurger} />
         </div>
       </div>
     </nav>
