@@ -33,7 +33,7 @@ import CardSlider from "./CardSlider";
 
 const WhatPeopleSay = () => {
   return (
-    <div className="man-h-screen w-full flex flex-col items-center">
+    <div className="min-h-screen w-full flex flex-col items-center">
       <div className="w-full flex flex-col gap-5 items-center px-4 sm:px-8 lg:px-16 text-center py-10">
         <h1
           className={`${frankRuhlLibrevBold.className} text-[32px] sm:text-[40px] lg:text-[48px] text-primary`}
