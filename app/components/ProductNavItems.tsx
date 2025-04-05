@@ -2,10 +2,10 @@
 import React, { useState } from "react";
 import { frankRuhlLibrev, frankRuhlLibrevBold } from "../utils/fonts";
 
+const productNavItems = ["HOT", "ON SALE", "TRENDING NOW", "NEW ARRIVAL"];
+
 const ProductNavItems = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-
-  const productNavItems = ["HOT", "ON SALE", "TRENDING NOW", "NEW ARRIVAL"];
 
   return (
     <ul className="flex gap-11">

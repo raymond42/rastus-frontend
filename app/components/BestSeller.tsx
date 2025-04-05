@@ -36,7 +36,7 @@ const BestSeller = () => {
             // <BestSellerCardSlider />
           ))}
         </div>
-        <div className="py-10">
+        <div className="py-10 sm:hidden block">
           <Button
             textColor="text-white-primary"
             textSize="text-[14px]"
