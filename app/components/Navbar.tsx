@@ -98,7 +98,7 @@ const Navbar = () => {
           LOGIN
         </button>
         <div className="sm:hidden block pr-3">
-          <CiMenuBurger className="w-11 h-12" onClick={handleClickMenuBurger} />
+          <CiMenuBurger className="w-7 h-7" onClick={handleClickMenuBurger} />
         </div>
       </div>
     </nav>
