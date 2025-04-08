@@ -12,10 +12,11 @@ const StarRate = () => {
         return (
           <FaStar
             key={key}
-            size={20}
+            // size={20}
             color={rating && currentRate <= rating ? "orange" : "grey"}
             aria-valuenow={currentRate}
             onClick={() => setRating(currentRate)}
+            className="sm:size-[20px]"
           />
         );
       })}
