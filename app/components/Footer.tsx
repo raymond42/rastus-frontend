@@ -53,10 +53,10 @@ const Footer = () => {
         </div>
         <div className="flex flex-col gap-4 py-2 text-center sm:text-left">
           <address className={`${jost.className} text-sm not-italic`}>
-            Calista Wise 7292 Dictum Av. Antonio, Italy.
+            KG ST 542A, Kigali Heights 6th Floor.
           </address>
-          <p className={`${jost.className} text-sm`}>+250 7993 238 1</p>
-          <p className={`${jost.className} text-sm`}>rastus@mail.com</p>
+          <p className={`${jost.className} text-sm`}>+250 7944 0956 1</p>
+          <p className={`${jost.className} text-sm`}>rastus@gmail.com</p>
           <p className={`${jost.className} text-sm`}>www.rastus.com</p>
         </div>
       </div>

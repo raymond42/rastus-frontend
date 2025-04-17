@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from "react";
 import LogoDarkBlue from "@/public/rastus-dark-blue-logo.png";
 import Image from "next/image";
-import { CiShoppingCart, CiMenuBurger } from "react-icons/ci";
+import { CiShoppingCart } from "react-icons/ci";
+import { RiMenu3Fill } from "react-icons/ri";
 import MobileMenuItems from "./MobileMenuItems";
 
 type MenuItem = {
@@ -98,7 +99,7 @@ const Navbar = () => {
           LOGIN
         </button>
         <div className="sm:hidden block pr-3">
-          <CiMenuBurger className="w-7 h-7" onClick={handleClickMenuBurger} />
+          <RiMenu3Fill className="w-7 h-7" onClick={handleClickMenuBurger} />
         </div>
       </div>
     </nav>
