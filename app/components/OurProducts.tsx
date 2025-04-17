@@ -16,7 +16,7 @@ const OurProducts = () => {
       <ProductNavItems />
 
       {/* Ensure wrapping works correctly */}
-      <div className="flex flex-wrap gap-8 justify-center">
+      <div className="flex flex-wrap sm:gap-8 gap-2 justify-center">
         {[...Array(8)].map((_, key) => (
           <ProductCard name="Hoodie" price="23k FRW" key={key} />
         ))}

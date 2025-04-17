@@ -1,8 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LogoDarkBlue from "@/public/rastus-dark-blue-logo.png";
 import Image from "next/image";
-import { CiShoppingCart, CiMenuBurger } from "react-icons/ci";
+import { CiShoppingCart } from "react-icons/ci";
+import { RiMenu3Fill } from "react-icons/ri";
 import MobileMenuItems from "./MobileMenuItems";
 
 type MenuItem = {
@@ -18,15 +19,39 @@ const Navbar = () => {
     { label: "COLLECTION", href: "#" },
     { label: "TRENDS", href: "#" },
   ];
-  // const navItems = ["MEN", "WOMEN", "KIDS", "COLLECTION", "TRENDS"];
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
 
   const handleClickMenuBurger = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleScroll = () => {
+    if (window.scrollY > 0) {
+      setHasScrolled(true);
+    } else {
+      setHasScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    // Add scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="flex justify-between items-center sm:px-40 h-28 fixed w-full bg-white-primary border-b top-0 z-50">
+    <nav
+      className={`flex justify-between items-center sm:px-40 h-28 fixed w-full bg-white-primary top-0 z-50 ${
+        hasScrolled ? "border-b" : ""
+      }`}
+    >
+      {" "}
       {/* Logo Section */}
       <div>
         <Image
@@ -47,7 +72,6 @@ const Navbar = () => {
           />
         </div>
       )}
-
       {/* Navigation links */}
       <div className="hidden sm:block">
         <ul className="flex flex-row gap-11">
@@ -61,7 +85,6 @@ const Navbar = () => {
           ))}
         </ul>
       </div>
-
       {/* Cart and Login Section */}
       <div className="flex gap-10 items-center">
         <div className="relative">
@@ -76,7 +99,7 @@ const Navbar = () => {
           LOGIN
         </button>
         <div className="sm:hidden block pr-3">
-          <CiMenuBurger className="w-11 h-12" onClick={handleClickMenuBurger} />
+          <RiMenu3Fill className="w-7 h-7" onClick={handleClickMenuBurger} />
         </div>
       </div>
     </nav>

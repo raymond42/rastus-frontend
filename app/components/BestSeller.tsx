@@ -30,7 +30,7 @@ const BestSeller = () => {
             SEE MORE
           </Button>
         </div>
-        <div className="flex sm:flex-row flex-col gap-6 sm:pt-32 pt-6 sm:pl-16">
+        <div className="flex sm:flex-row flex-wrap sm:flex-nowrap justify-center sm:gap-6 gap-2 sm:pt-32 pt-6 sm:pl-16">
           {[...Array(3)].map((product, key) => (
             <ProductCard name="Customized Hoodies" price="25k FRW" key={key} />
             // <BestSellerCardSlider />
