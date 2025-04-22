@@ -33,10 +33,9 @@ const ProductCard = ({
       </div>
       <div
         className={`p-6 flex ${
-          isButtonDisabled ? "items-start" : "items-center"
+          isButtonDisabled ? "sm:items-start items-center" : "items-center"
         } flex-col gap-4 box-border`}
       >
-        {" "}
         {/* Added box-sizing */}
         <StarRate rate={rating} />
         <h1 className={`${frankRuhlLibrevBold.className} text-primary text-lg`}>
