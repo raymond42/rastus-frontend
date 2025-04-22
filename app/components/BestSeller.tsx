@@ -2,6 +2,38 @@ import React from "react";
 import { frankRuhlLibrev, frankRuhlLibrevBold } from "../utils/fonts";
 import Button from "./Button";
 import ProductCard from "./ProductCard";
+import HoodyHeavenly from "@/public/productSeller/hoodie-heavenly.webp";
+import TshirtHeavenly from "@/public/productSeller/t-shirt-heavenly.webp";
+import CapHeavenly from "@/public/productSeller/cap-heavenly.webp";
+import { StaticImageData } from "next/image";
+
+type ProductCardProps = {
+  name: string;
+  image: StaticImageData | string;
+  rating: number;
+  price: string;
+};
+
+const HeavenlyHitsData: ProductCardProps[] = [
+  {
+    name: "Hoodies",
+    image: HoodyHeavenly,
+    rating: 4.5,
+    price: "30k FRW",
+  },
+  {
+    name: "T-Shirts",
+    image: TshirtHeavenly,
+    rating: 4.7,
+    price: "20k FRW",
+  },
+  {
+    name: "Caps",
+    image: CapHeavenly,
+    rating: 4.8,
+    price: "15k FRW",
+  },
+];
 
 const BestSeller = () => {
   return (
@@ -11,13 +43,13 @@ const BestSeller = () => {
           <h1
             className={`${frankRuhlLibrevBold.className} text-[52px] text-white-primary`}
           >
-            Best Seller Product
+            Heavenly Hits
           </h1>
           <p
             className={`${frankRuhlLibrev.className} text-[20px] text-white-primary px-6 sm:px-0`}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-            ullamcorper congue eros
+            These are the best-selling products of the month. They are customer
+            favorites and are highly recommended. <br />
           </p>
           <Button
             textColor="text-white-primary"
@@ -31,8 +63,15 @@ const BestSeller = () => {
           </Button>
         </div>
         <div className="flex sm:flex-row flex-wrap sm:flex-nowrap justify-center sm:gap-6 gap-2 sm:pt-32 pt-6 sm:pl-16">
-          {[...Array(3)].map((product, key) => (
-            <ProductCard name="Customized Hoodies" price="25k FRW" key={key} />
+          {HeavenlyHitsData.map((product, key) => (
+            <ProductCard
+              name={product.name}
+              image={product.image}
+              rating={product.rating}
+              price={product.price}
+              isButtonDisabled={true}
+              key={key}
+            />
             // <BestSellerCardSlider />
           ))}
         </div>

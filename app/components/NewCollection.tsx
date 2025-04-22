@@ -28,7 +28,7 @@ const NewCollection = () => {
         <h1
           className={`${frankRuhlLibrevBold.className} sm:text-7xl text-5xl text-primary`}
         >
-          New Collection
+          What&apos;s Trending?
         </h1>
         <p
           className={`${frankRuhlLibrev.className} sm:text-xl text-lg text-primary`}

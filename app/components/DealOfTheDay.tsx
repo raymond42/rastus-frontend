@@ -15,13 +15,13 @@ const DealOfTheDay = () => {
           <h1
             className={`${frankRuhlLibrevBold.className} text-4xl sm:text-5xl text-primary`}
           >
-            Deal Of The Day
+            Limited Time Offer
           </h1>
           <p
             className={`${frankRuhlLibrev.className} text-primary text-base sm:text-lg`}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-            ullamcorper congue eros get tincidunt.
+            Don’t miss out — today’s exclusive deal won’t last long! Handpicked
+            pieces at unbeatable prices, available for 24 hours only
           </p>
           <div className="sm:w-[350px] w-full">
             <DealTime />
@@ -32,9 +32,9 @@ const DealOfTheDay = () => {
             textColor="text-white"
             backgroundColor="bg-primary"
             borderColor="border-primary"
-            className="hover:bg-transparent hover:text-primary text-white-primary hover:border mt-4 sm:mt-5 cursor-pointer"
+            className="hover:bg-transparent hover:text-primary text-white-primary hover:border mt-4 sm:mt-5 cursor-pointer uppercase"
           >
-            SHOP NOW
+            Shop The Drop
           </Button>
         </div>
 
