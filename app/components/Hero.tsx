@@ -22,7 +22,7 @@ const Hero = () => {
         <h1
           className={`${frankRuhlLibrevBold.className} sm:text-7xl text-5xl font-bold text-primary sm:leading-[100px]`}
         >
-          Find the Best Fashion Style For You
+          Break Rules, Wear Rastus
         </h1>
         <p className={`${frankRuhlLibrev.className} text-xl text-primary`}>
           Upgrade Your Wardrobe with the Timeless Elegance of Clothes: Elevate
