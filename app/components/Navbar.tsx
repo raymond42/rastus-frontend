@@ -13,11 +13,13 @@ type MenuItem = {
 
 const Navbar = () => {
   const navItems: MenuItem[] = [
-    { label: "MEN", href: "#" },
-    { label: "WOMEN", href: "#" },
-    { label: "KIDS", href: "#" },
-    { label: "COLLECTION", href: "#" },
-    { label: "TRENDS", href: "#" },
+    { label: "About", href: "#" },
+    { label: "Products", href: "#" },
+    { label: "Men", href: "#" },
+    { label: "Women", href: "#" },
+    { label: "Design Your Own", href: "#" },
+    // { label: "COLLECTION", href: "#" },
+    // { label: "TRENDS", href: "#" },
   ];
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);

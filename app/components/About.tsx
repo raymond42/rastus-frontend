@@ -48,16 +48,17 @@ const About: React.FC = () => {
           <h1
             className={`${frankRuhlLibrevBold.className} sm:leading-[78px] sm:text-7xl text-5xl text-primary pt-6 sm:pt-0`}
           >
-            Rastus Best In Fashion In 2025
+            Rastus Crafted For The Few.
           </h1>
           <p
             className={`${frankRuhlLibrev.className} pt-[30px] text-[20px] leading-[180%] text-primary`}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-            ullamcorper congue eros, eget tincidunt ipsum eleifend ut. Lorem
-            ipsum dolor sit amet consectetur adipiscing elit. Sed ullamcorper
-            congue eros eleifend ut tincidunt ipsum.ipsum dolor sit amet,
-            consectetur adipiscing elit. <br />
+            At Rastus, we believe fashion should speak your language. That’s why
+            we’ve created a space where you don’t just wear clothes — you design
+            them. Whether it’s your favorite quote, a Bible verse, a personal
+            photo, or a custom cartoon, we make it possible to turn your vision
+            into wearable art. From our exclusive designs to your own creative
+            twist, every piece tells a story <br />
           </p>
           <button
             className={`${frankRuhlLibrev.className} w-[188px] text-[20px] text-center text-primary border border-primary mt-6 px-6 py-2 flex rounded-full hover:text-[22px] duration-500 transition-all hover:bg-primary hover:text-lightBrown-50`}
