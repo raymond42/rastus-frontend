@@ -1,5 +1,6 @@
+// app/product/[id]/page.tsx or similar
 import { Navbar } from "@/app/components";
-import React from "react";
+import ProductImageDetailsWrapper from "@/app/components/ProductDetailsWrapper";
 import blueTshirt from "@/public/productDetails/t-shirts/blue-t-shirt.webp";
 import brownTshirt from "@/public/productDetails/t-shirts/brown-t-shirt.webp";
 import blackTshirt from "@/public/productDetails/t-shirts/black-t-shirt.webp";
@@ -8,82 +9,56 @@ import coffeeTshirt from "@/public/productDetails/t-shirts/coffee-color-t-shirt.
 import grayTshirt from "@/public/productDetails/t-shirts/gray-t-shirt.webp";
 import greenTshirt from "@/public/productDetails/t-shirts/green-t-shirt.webp";
 import cementGrayTshirt from "@/public/productDetails/t-shirts/cement-gray-t-shirt.webp";
-import Image, { StaticImageData } from "next/image";
-import ProductImageChange from "@/app/components/ProductImageChange";
-
-type ProductDetailsProps = {
-  id: string;
-  name: string;
-  image: StaticImageData | string;
-  price: string;
-  description: string;
-  rating: number;
-  reviews: number;
-  category: string;
-  stock: number;
-  size: string;
-  color: string;
-  quantity: number;
-};
-
-type colorType = {
-  name: string;
-  image: StaticImageData | string;
-};
-
-type sizeType = {
-  name: string;
-  symbol: string;
-};
+import { ColorType, ProductType, SizeType } from "@/app/types/product";
 
 const ProductDetailsPage = () => {
-  const productDetails: ProductDetailsProps = {
-    id: "1",
-    name: "Customized Hoodie",
-    image: blueTshirt,
-    price: "30k FRW",
-    description: "This is a customized hoodie.",
-    rating: 4.5,
-    reviews: 100,
-    category: "Hoodies",
-    stock: 50,
-    size: "M",
-    color: "Black",
-    quantity: 1,
-  };
-
-  const colors: colorType[] = [
+  const colors: ColorType[] = [
     { name: "Blue", image: blueTshirt },
     { name: "Brown", image: brownTshirt },
     { name: "Black", image: blackTshirt },
     { name: "Dirty White", image: dirtyWhiteTshirt },
-    { name: "coffee", image: coffeeTshirt },
+    { name: "Coffee", image: coffeeTshirt },
     { name: "Gray", image: grayTshirt },
     { name: "Green", image: greenTshirt },
     { name: "Cement Gray", image: cementGrayTshirt },
   ];
 
-  const sizes: sizeType[] = [
-    { name: "Small", symbol: "S" },
-    { name: "Medium", symbol: "M" },
-    { name: "Large", symbol: "L" },
-    { name: "Extra Large", symbol: "XL" },
+  const sizeOptions: SizeType[] = [
+    { name: "S", symbol: "S", fullName: "Small" },
+    { name: "M", symbol: "M", fullName: "Medium" },
+    { name: "L", symbol: "L", fullName: "Large" },
+    { name: "XL", symbol: "XL", fullName: "Extra Large" },
   ];
 
+  const product: ProductType = {
+    id: "1",
+    name: "oversized t-shirt",
+    image: blueTshirt,
+    price: "30k FRW",
+    shortDescription: "Oversized High Collar Tee v5",
+    longDescription:
+      "This is a long description of the customized hoodie. It is made of high-quality materials and is perfect for any occasion.",
+    rating: 4.5,
+    reviews: 100,
+    category: "Hoodies",
+    stock: 50,
+    size: { name: "M", symbol: "M", fullName: "Medium" },
+    color: { name: "Blue", image: blueTshirt },
+    quantity: 1,
+  };
+
   return (
-    <div>
+    <div className="flex flex-col w-full">
       <div className="absolute bg-white-primary w-full">
         <Navbar />
       </div>
-      <div className="main-div p-48 bg-gray-50">
-        <div className="first-section flex">
-          <div className="left-side-images max-h-[600px]">
-            <ProductImageChange colors={colors} />
-          </div>
-          <div className="right-side-description"></div>
-        </div>
-        <div className="secoond-section"></div>
-        <div className="third-section"></div>
+
+      <div className="main-div w-full sm:pt-40 pt-28 overflow-hidden bg-gray-50">
+        <ProductImageDetailsWrapper
+          colors={colors}
+          baseProduct={product}
+          sizeOptions={sizeOptions}
+        />
       </div>
     </div>
   );

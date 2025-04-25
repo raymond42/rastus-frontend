@@ -1,4 +1,4 @@
-import { Frank_Ruhl_Libre, Jost } from "next/font/google";
+import { Frank_Ruhl_Libre, Jost, Montserrat } from "next/font/google";
 
 const frankRuhlLibrevBold = Frank_Ruhl_Libre({
   weight: "700",
@@ -20,4 +20,27 @@ const jostSemiBold = Jost({
   subsets: ["latin"],
 });
 
-export { frankRuhlLibrev, frankRuhlLibrevBold, jost, jostSemiBold };
+const montserrat = Montserrat({
+  weight: "400",
+  subsets: ["latin"],
+});
+
+const montserratSemiBold = Montserrat({
+  weight: "500",
+  subsets: ["latin"],
+});
+
+const montserratBold = Montserrat({
+  weight: "700",
+  subsets: ["latin"],
+});
+
+export {
+  frankRuhlLibrev,
+  frankRuhlLibrevBold,
+  jost,
+  jostSemiBold,
+  montserrat,
+  montserratSemiBold,
+  montserratBold,
+};

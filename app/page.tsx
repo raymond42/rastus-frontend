@@ -7,7 +7,7 @@ import {
   NewCollection,
   OurProducts,
   // WhatPeopleSay,
-} from "./components";
+} from "./components/index";
 
 export default function Home() {
   return (

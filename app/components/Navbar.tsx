@@ -5,6 +5,7 @@ import Image from "next/image";
 import { CiShoppingCart } from "react-icons/ci";
 import { RiMenu3Fill } from "react-icons/ri";
 import MobileMenuItems from "./MobileMenuItems";
+import Link from "next/link";
 
 type MenuItem = {
   label: string;
@@ -13,7 +14,7 @@ type MenuItem = {
 
 const Navbar = () => {
   const navItems: MenuItem[] = [
-    { label: "About", href: "#" },
+    { label: "Our Story", href: "#" },
     { label: "Products", href: "#" },
     { label: "Men", href: "#" },
     { label: "Women", href: "#" },
@@ -53,17 +54,18 @@ const Navbar = () => {
         hasScrolled ? "border-b" : ""
       }`}
     >
-      {" "}
       {/* Logo Section */}
       <div>
-        <Image
-          src={LogoDarkBlue}
-          width={0}
-          height={0}
-          alt="Rastus Logo"
-          priority
-          className="sm:w-[155px] sm:h-[82px] w-[120px] h-[64px] object-contain cursor-pointer"
-        />
+        <Link href="/">
+          <Image
+            src={LogoDarkBlue}
+            width={0}
+            height={0}
+            alt="Rastus Logo"
+            priority
+            className="sm:w-[155px] sm:h-[82px] w-[120px] h-[64px] object-contain cursor-pointer"
+          />
+        </Link>
       </div>
       {/* Mobile Menu */}
       {isMenuOpen && (
