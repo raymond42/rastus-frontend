@@ -15,6 +15,9 @@ const config: Config = {
           50: "#DBCCBC",
           100: "#EEDDCC",
         },
+        gray: {
+          50: "#F9F9F9",
+        },
         white: {
           primary: "#FFFFFF",
           secondary: "#EFEFEF",
@@ -41,7 +44,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar-hide")],
 };
 
 export default config;
