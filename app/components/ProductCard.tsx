@@ -2,9 +2,10 @@ import Image, { StaticImageData } from "next/image";
 import React from "react";
 import customizedHoodie from "@/public/productSeller/customized-hoodie.png";
 import StarRate from "./StarRate";
-import { frankRuhlLibrev, frankRuhlLibrevBold } from "../utils/fonts";
-import Button from "./Button";
-import { FaShoppingCart } from "react-icons/fa";
+import { frankRuhlLibrevBold } from "../utils/fonts";
+// import { frankRuhlLibrev, frankRuhlLibrevBold } from "../utils/fonts";
+// import Button from "./Button";
+// import { FaShoppingCart } from "react-icons/fa";
 
 type ProductCardProps = {
   name: string;
@@ -46,14 +47,14 @@ const ProductCard = ({
         >
           {price}
         </p>
-        {!isButtonDisabled ? (
+        {/* {!isButtonDisabled ? (
           <Button
             width="w-full"
             className={`${frankRuhlLibrev.className} py-2 bg-primary text-white-primary hover:text-primary hover:bg-transparent hover:border hover:border-primary`}
           >
             <FaShoppingCart className="mr-2" /> ADD TO CART
           </Button>
-        ) : null}
+        ) : null} */}
       </div>
     </div>
   );

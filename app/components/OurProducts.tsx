@@ -11,7 +11,10 @@ import TShirt from "@/public/our products/t-shirt.webp";
 import SoftLongValez from "@/public/our products/soft-long-valez.webp";
 import Shorts from "@/public/our products/shorts.webp";
 import LongTshirts from "@/public/our products/long-tshirts-col.webp";
+import Snapback from "@/public/our products/yeg-snapback.webp";
+import Ccap from "@/public/our products/c-cap.webp";
 import { StaticImageData } from "next/image";
+import Link from "next/link";
 
 type ProductCardProps = {
   name: string;
@@ -69,6 +72,18 @@ const Products: ProductCardProps[] = [
     rating: 4.8,
     price: "25k FRW",
   },
+  {
+    name: "Snapback",
+    image: Snapback,
+    rating: 4.8,
+    price: "25k FRW",
+  },
+  {
+    name: "C-cap",
+    image: Ccap,
+    rating: 4.8,
+    price: "25k FRW",
+  },
 ];
 
 const OurProducts = () => {
@@ -83,7 +98,10 @@ const OurProducts = () => {
       <ProductNavItems />
 
       {/* Ensure wrapping works correctly */}
-      <div className="flex flex-wrap sm:gap-8 gap-2 justify-center">
+      <Link
+        href="/products/1"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full"
+      >
         {Products.map((product, key) => (
           <ProductCard
             name={product.name}
@@ -94,7 +112,7 @@ const OurProducts = () => {
             key={key}
           />
         ))}
-      </div>
+      </Link>
     </div>
   );
 };
