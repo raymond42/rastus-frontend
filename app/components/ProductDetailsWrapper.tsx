@@ -28,7 +28,7 @@ const ProductImageDetailsWrapper = ({
 
   return (
     <div className="flex sm:flex-row flex-col justify-center w-full gap-10">
-      <div className="sm:max-h-[700px] h-auto sm:w-2/5 w-full">
+      <div className="sm:max-h-[700px] h-auto sm:w-1/2 w-full">
         <ProductImageChange
           colors={colors}
           selectedColor={selectedColor}

@@ -16,6 +16,22 @@ export type ProductType = {
   quantity: number;
 };
 
+// export interface ProductCardProps {
+//   name: string;
+//   image: StaticImageData | string;
+//   rating: number;
+//   price: string;
+//   shortDescription?: string;
+//   longDescription?: string;
+//   shippingReturns?: string;
+//   sizeFit?: string;
+//   sizeChart?: any[];
+//   reviews?: number;
+//   category?: string;
+//   stock?: number;
+//   quantity?: number;
+// }
+
 export type ColorType = {
   name: string;
   image: StaticImageData | string;
