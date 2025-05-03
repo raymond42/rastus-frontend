@@ -40,14 +40,11 @@ const QuantitySelector = () => {
             value={quantity}
             onChange={handleInputChange}
             onKeyDown={handleOnKeyDown}
-            className="w-12 text-center flex items-center justify-center border-none outline-none bg-transparent text-primary text-[20px] sm:text-[30px] h-full"
+            className="w-12 text-center flex items-center justify-center border-none outline-none bg-transparent text-primary text-opacity-100 text-[20px] h-full"
           />
         </div>
         <div className="button w-[40px]" onClick={handleIncrement}>
-          <button
-            className="text-white w-full text-[30px]"
-            onClick={handleIncrement}
-          >
+          <button className="w-full text-[30px]" onClick={handleIncrement}>
             +
           </button>
         </div>
