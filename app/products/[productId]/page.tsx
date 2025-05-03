@@ -9,25 +9,25 @@ import coffeeTshirt from "@/public/productDetails/t-shirts/coffee-color-t-shirt.
 import grayTshirt from "@/public/productDetails/t-shirts/gray-t-shirt.webp";
 import greenTshirt from "@/public/productDetails/t-shirts/green-t-shirt.webp";
 import cementGrayTshirt from "@/public/productDetails/t-shirts/cement-gray-t-shirt.webp";
-import { ColorType, ProductType, SizeType } from "@/app/types/product";
+import { ColorType, SizeType } from "@/app/types/product";
 import ProductDetailsAccordion from "@/app/components/ProductDetailsAccordion";
-import { montserrat, montserratBold } from "@/app/utils/fonts";
+import { montserrat } from "@/app/utils/fonts";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { Products } from "@/app/constants";
 
-type AccordionProductType = {
-  longDescription: string;
-  shortDescription: string;
-  highlights: string[];
-  shippingReturns: string;
-  sizeFit: string;
-  sizeChart: {
-    size: string;
-    chest: string;
-    length: string;
-  }[];
-};
+// type AccordionProductType = {
+//   longDescription: string;
+//   shortDescription: string;
+//   highlights: string[];
+//   shippingReturns: string;
+//   sizeFit: string;
+//   sizeChart: {
+//     size: string;
+//     chest: string;
+//     length: string;
+//   }[];
+// };
 
 const ProductDetailsPage = () => {
   const colors: ColorType[] = [

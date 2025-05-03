@@ -52,8 +52,7 @@ const ProductDetailsAccordion = ({ product }: ProductDetailsAccordionProps) => {
     ],
   };
 
-  const { longDescription, highlights, shippingReturns, sizeFit, sizeChart } =
-    accordionProduct;
+  const { highlights, shippingReturns, sizeFit, sizeChart } = accordionProduct;
 
   return (
     <Accordion
@@ -139,7 +138,7 @@ const ProductDetailsAccordion = ({ product }: ProductDetailsAccordionProps) => {
             </div>
           )}
 
-          <p>Model is 6'1" and wears a size M.</p>
+          <p>Model is 6&apos;1&quot; and wears a size M.</p>
         </AccordionContent>
       </AccordionItem>
     </Accordion>
