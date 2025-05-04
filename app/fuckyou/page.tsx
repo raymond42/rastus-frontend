@@ -2,16 +2,14 @@ import React from "react";
 
 const FuckYou = () => {
   return (
-    <div
-      className="min-h-screen flex flex-col items-center justify-center bg-cover bg-center text-white"
-      //   style={{
-      //     backgroundImage:
-      //       "url('https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=1950&q=80')",
-      //   }}
-    >
-      <div className="bg-black bg-opacity-70 p-40 rounded-2xl text-center shadow-2xl">
-        <h1 className="text-5xl font-bold mb-4">Fuck You 🖕🏽</h1>
-        <p className="text-lg">Bitch!</p>
+    <div className="min-h-screen flex items-center justify-center bg-cover bg-center text-white">
+      <div className="bg-black bg-opacity-70 p-10 md:p-20 rounded-3xl text-center shadow-2xl backdrop-blur-sm max-w-2xl">
+        <h1 className="text-6xl md:text-7xl font-extrabold mb-6 tracking-wide">
+          Fuck You 🖕🏽
+        </h1>
+        <p className="text-xl md:text-2xl font-light">
+          With all due disrespect.
+        </p>
       </div>
     </div>
   );
