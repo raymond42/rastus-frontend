@@ -36,8 +36,10 @@ const ProductImageChange = ({
               width={0}
               height={0}
               className={`
-                w-[60px] 
-                h-[70px] 
+                sm:w-[60px]
+                w-[30px]
+                sm:h-[70px]
+                h-[20px] 
                 object-cover 
                 border 
                 border-primary 
@@ -59,7 +61,7 @@ const ProductImageChange = ({
       </div>
 
       {/* Main Image */}
-      <div className="border rounded-md w-full max-h-screen">
+      <div className="w-full max-h-screen h-full">
         <div className="sm:block hidden w-full h-full">
           <Image
             src={selectedColor.image}
@@ -70,7 +72,7 @@ const ProductImageChange = ({
             priority
           />
         </div>
-        <div className="sm:hidden block w-full">
+        <div className="sm:hidden block w-full h-[70%]">
           <SwiperCube
             images={colors}
             selectedColor={selectedColor}
