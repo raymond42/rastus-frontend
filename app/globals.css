@@ -7,6 +7,10 @@
   --font-mono: var(--font-geist-mono);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .swiper-pagination-bullet {
   width: 8px; /* Match --swiper-pagination-bullet-size */
   height: 8px;
@@ -82,4 +86,14 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Hide scrollbar for all browsers */
+.no-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }

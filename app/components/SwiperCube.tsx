@@ -1,15 +1,10 @@
 "use client";
-import React, { FC, useEffect, useRef, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Navigation, Thumbs } from "swiper/modules";
-import Image from "next/image";
-import { Swiper as SwiperTypes } from "swiper/types";
-import { ColorType } from "@/app/types/product";
 
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/navigation";
-import "swiper/css/thumbs";
+import { FC, useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ColorType } from "@/app/types/product";
 
 type SwiperCubeProps = {
   images: ColorType[];
@@ -22,94 +17,111 @@ const SwiperCube: FC<SwiperCubeProps> = ({
   selectedColor,
   onColorChange,
 }) => {
-  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperTypes | null>(null);
-  const swiperRef = useRef<SwiperTypes | null>(null);
-
   const [activeIndex, setActiveIndex] = useState(0);
+  const thumbsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const selectedIndex = images.findIndex(
       (img) => img.image === selectedColor.image
     );
-    if (selectedIndex !== -1 && swiperRef.current) {
-      swiperRef.current.slideTo(selectedIndex);
+    if (selectedIndex !== -1) {
       setActiveIndex(selectedIndex);
+      scrollToThumbnail(selectedIndex);
     }
-    if (thumbsSwiper) {
-      thumbsSwiper.slideTo(selectedIndex, 300, false); // 👈 center thumbs swiper manually
-    }
-  }, [images, selectedColor, thumbsSwiper]);
+  }, [selectedColor, images]);
 
-  const handleOnSwiper = (swiper: SwiperTypes) => {
-    swiperRef.current = swiper;
-
-    swiper.on("slideChange", () => {
-      const newIndex = swiper.activeIndex;
-      const newColor = images[newIndex];
-      setActiveIndex(newIndex);
-      onColorChange(newColor);
-
-      if (thumbsSwiper) {
-        thumbsSwiper.slideTo(newIndex, 300, false); // 👈 also move thumbs when slide changes
+  const scrollToThumbnail = (index: number) => {
+    if (thumbsRef.current) {
+      const container = thumbsRef.current;
+      const child = container.children[index] as HTMLElement;
+      if (child) {
+        container.scrollTo({
+          left:
+            child.offsetLeft -
+            container.clientWidth / 2 +
+            child.clientWidth / 2,
+          behavior: "smooth",
+        });
       }
-    });
+    }
+  };
+
+  const goToSlide = (index: number) => {
+    if (index >= 0 && index < images.length) {
+      setActiveIndex(index);
+      onColorChange(images[index]);
+      scrollToThumbnail(index);
+    }
   };
 
   return (
-    <div className="border-2 m-2">
-      {/* Main Swiper */}
-      <Swiper
-        style={
-          {
-            "--swiper-navigation-color": "#001F3F",
-            "--swiper-navigation-size": "16px",
-          } as React.CSSProperties
-        }
-        spaceBetween={10}
-        navigation={true}
-        thumbs={{ swiper: thumbsSwiper }}
-        modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper2 h-[500px]"
-        onSwiper={handleOnSwiper}
-      >
-        {images.map((image, key) => (
-          <SwiperSlide key={key} className="h-full">
-            <Image src={image.image} alt={image.name} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+    <div className="w-full">
+      {/* Main Image */}
+      <div className="relative h-[400px] w-full flex items-center justify-center bg-white overflow-hidden rounded-md">
+        <Image
+          src={images[activeIndex].image}
+          alt={images[activeIndex].name}
+          fill
+          className="object-contain"
+        />
 
-      {/* Space between main and thumbs */}
-      <div className="h-6" />
+        {/* Prev Button */}
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => goToSlide(activeIndex - 1)}
+          className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 z-10 rounded-full bg-white/80 hover:bg-white shadow-md"
+        >
+          <ChevronLeft className="w-5 h-5 text-gray-700" />
+        </Button>
 
-      {/* Thumbs Swiper */}
-      <Swiper
-        onSwiper={(swiper) => setThumbsSwiper(swiper)}
-        spaceBetween={10}
-        slidesPerView={3}
-        centeredSlides={activeIndex !== 0}
-        freeMode={true}
-        watchSlidesProgress={true}
-        modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper py-6"
-      >
-        {images.map((image, key) => {
-          const isSelected = image.image === selectedColor.image;
+        {/* Next Button */}
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => goToSlide(activeIndex + 1)}
+          className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 z-10 rounded-full bg-white/80 hover:bg-white shadow-md"
+        >
+          <ChevronRight className="w-5 h-5 text-gray-700" />
+        </Button>
+      </div>
 
-          return (
-            <SwiperSlide
-              key={key}
-              className={`border ${
-                isSelected
-                  ? "border-yellow-600 border-opacity-50 border-2"
-                  : "border-yellow-600 border-opacity-15 border-x-0"
-              }`}
-            >
-              <Image src={image.image} alt={image.name} />
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+      {/* Spacer */}
+      <div className="h-3 sm:h-4" />
+
+      {/* Thumbnails */}
+      <div className="relative px-2">
+        <div
+          ref={thumbsRef}
+          className="flex overflow-x-auto no-scrollbar scroll-smooth gap-2"
+          style={{ scrollSnapType: "x mandatory" }}
+        >
+          {images.map((image, index) => {
+            const isSelected = image.image === selectedColor.image;
+
+            return (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`flex-none w-1/3 aspect-square p-1 transition-all ${
+                  isSelected
+                    ? "border-2 border-primary border-opacity-50"
+                    : "border border-primary border-opacity-15"
+                }`}
+                style={{ scrollSnapAlign: "center" }}
+              >
+                <Image
+                  src={image.image}
+                  alt={image.name}
+                  width={100}
+                  height={100}
+                  className="object-cover w-full h-full"
+                />
+              </button>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };
