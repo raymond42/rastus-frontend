@@ -15,9 +15,7 @@ const Hero = () => {
           className="sm:max-h-screen h-full object-cover object-[5px]"
         />
       </div>
-      <div className="absolute bg-white-primary w-full">
-        <Navbar />
-      </div>
+
       <div className="sm:px-40 px-3 sm:pt-0 pt-28 flex flex-col justify-center items-center text-center h-full gap-10 sm:w-1/2">
         <h1
           className={`${frankRuhlLibrevBold.className} sm:text-7xl text-5xl font-bold text-primary sm:leading-[100px]`}

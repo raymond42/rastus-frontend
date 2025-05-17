@@ -37,9 +37,9 @@ const ProductDetailsPage = () => {
 
   return (
     <div className="flex flex-col w-full">
-      <div className="absolute bg-white-primary w-full">
+      {/* <div className="absolute bg-white-primary w-full">
         <Navbar />
-      </div>
+      </div> */}
       <div className=" bg-gray-50 w-full sm:pt-40 pt-28 sm:px-48 overflow-hiddenflex flex flex-col sm:gap-20 gap-10 pb-10">
         <div className=" flex-col gap-10 ">
           <ProductImageDetailsWrapper

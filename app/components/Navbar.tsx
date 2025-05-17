@@ -6,6 +6,8 @@ import { CiShoppingCart } from "react-icons/ci";
 import { RiMenu3Fill } from "react-icons/ri";
 import MobileMenuItems from "./MobileMenuItems";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { toggleCart } from "@/lib/redux/cartSlice";
 
 type MenuItem = {
   label: string;
@@ -13,6 +15,12 @@ type MenuItem = {
 };
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  const dispatch = useDispatch();
+
   const navItems: MenuItem[] = [
     { label: "Our Story", href: "#" },
     { label: "Products", href: "#" },
@@ -22,9 +30,6 @@ const Navbar = () => {
     // { label: "COLLECTION", href: "#" },
     // { label: "TRENDS", href: "#" },
   ];
-
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [hasScrolled, setHasScrolled] = useState(false);
 
   const handleClickMenuBurger = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -95,9 +100,15 @@ const Navbar = () => {
           <div className="text-white-primary font-extrabold bg-red-600 flex items-center justify-center rounded-full h-5 w-5 text-[10px] absolute right-0 top-1 z-10">
             1
           </div>
-          <div className="relative flex">
+          <button
+            className="relative flex"
+            onClick={() => {
+              console.log("something here.....");
+              dispatch(toggleCart());
+            }}
+          >
             <CiShoppingCart className="w-11 h-12 cursor-pointer font-bold hover:text-gray-500 transition-colors" />
-          </div>
+          </button>
         </div>
         <button className="sm:block hidden border border-primary font-bold text-primary rounded hover:bg-primary hover:text-white-primary transition-colors w-[108px] h-[45px]">
           LOGIN

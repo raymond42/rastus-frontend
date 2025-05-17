@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { montserrat, montserratBold } from "@/app/utils/fonts";
 import { ProductType, ColorType, SizeType } from "@/app/types/product";
@@ -6,6 +7,8 @@ import QuantitySelector from "./QuantitySelector";
 import { CiClock2, CiRuler, CiHeart } from "react-icons/ci";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 import { Button } from "@/components/ui/button";
+import { useDispatch } from "react-redux";
+import { addToCart, toggleCart } from "@/lib/redux/cartSlice";
 
 type ProductDetailsProps = {
   product: ProductType;
@@ -23,12 +26,26 @@ const ProductDetails = ({
   sizeOptions,
   onSizeChange,
 }: ProductDetailsProps) => {
+  const dispatch = useDispatch();
+
   const handleColorChange = (item: ColorType | SizeType) => {
     onColorChange(item as ColorType);
   };
 
   const handleSizeChange = (item: ColorType | SizeType) => {
     onSizeChange(item as SizeType);
+  };
+
+  const handleAddToBag = () => {
+    const cartItem = {
+      ...product,
+      size: product.size, // or selectedSize
+      color: product.color, // or selectedColor
+      quantity: 1, // make this dynamic from QuantitySelector
+    };
+
+    dispatch(addToCart(cartItem));
+    dispatch(toggleCart()); // show cart after adding
   };
 
   return (
@@ -106,6 +123,7 @@ const ProductDetails = ({
       <div className="Buttons flex flex-col gap-5 mt-4">
         <Button
           className={`${montserrat.className} text-[18px] capitalize border-2 border-primary sm:w-[500px] w-full h-[40px] bg-transparent text-primary hover:text-opacity-65 hover:bg-transparent hover:border-opacity-65 rounded-md`}
+          onClick={() => handleAddToBag()}
         >
           Add to bag
         </Button>

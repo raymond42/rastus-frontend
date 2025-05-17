@@ -2,6 +2,7 @@ import About from "./About";
 import BestSeller from "./BestSeller";
 import Button from "./Button";
 import CardSlider from "./CardSlider";
+import CartDropdown from "./CartDropDown";
 import DealOfTheDay from "./DealOfTheDay";
 import DealTime from "./DealTime";
 import Footer from "./Footer";
@@ -15,6 +16,7 @@ import StarRate from "./StarRate";
 import WhatPeopleSay from "./WhatPeopleSay";
 
 export {
+  CartDropdown,
   Footer,
   CardSlider,
   WhatPeopleSay,
