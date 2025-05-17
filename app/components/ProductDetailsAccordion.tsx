@@ -20,13 +20,7 @@ type ProductDetailsAccordionProps = {
 };
 
 const ProductDetailsAccordion = ({ product }: ProductDetailsAccordionProps) => {
-  const {
-    shortDescription,
-    // highlights = [],
-    // shippingReturns,
-    // sizeFit,
-    // sizeChart = [],
-  } = product;
+  const { shortDescription } = product;
 
   const accordionProduct = {
     longDescription:

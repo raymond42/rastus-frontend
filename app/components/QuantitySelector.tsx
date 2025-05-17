@@ -26,7 +26,7 @@ const QuantitySelector = () => {
   return (
     <div className="sm:w-[115px] w-[200px] sm:h-[39px] h-[50px]">
       <div className="flex items-center justify-between w-full h-full px-4 border-2 border-opacity-50 border-primary rounded-md">
-        <div className="button w-[20px]" onClick={handleDecrement}>
+        <div className="button w-[20px]">
           <button
             className="text-white w-full text-[30px]"
             onClick={handleDecrement}
@@ -43,7 +43,7 @@ const QuantitySelector = () => {
             className="w-12 text-center flex items-center justify-center border-none outline-none bg-transparent text-primary text-opacity-100 text-[20px] h-full"
           />
         </div>
-        <div className="button w-[40px]" onClick={handleIncrement}>
+        <div className="button w-[40px]">
           <button className="w-full text-[30px]" onClick={handleIncrement}>
             +
           </button>

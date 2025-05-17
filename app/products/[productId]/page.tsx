@@ -16,19 +16,6 @@ import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import { Products } from "@/app/constants";
 
-// type AccordionProductType = {
-//   longDescription: string;
-//   shortDescription: string;
-//   highlights: string[];
-//   shippingReturns: string;
-//   sizeFit: string;
-//   sizeChart: {
-//     size: string;
-//     chest: string;
-//     length: string;
-//   }[];
-// };
-
 const ProductDetailsPage = () => {
   const colors: ColorType[] = [
     { name: "Blue", image: blueTshirt },
@@ -48,53 +35,11 @@ const ProductDetailsPage = () => {
     { name: "XL", symbol: "XL", fullName: "Extra Large" },
   ];
 
-  // const product: ProductType = {
-  //   id: "1",
-  //   name: "oversized t-shirt",
-  //   image: blueTshirt,
-  //   price: "30k FRW",
-  //   shortDescription: "Oversized High Collar Tee v5",
-  //   longDescription:
-  //     "This is a long description of the customized hoodie. It is made of high-quality materials and is perfect for any occasion.",
-  //   rating: 4.5,
-  //   reviews: 100,
-  //   category: "Hoodies",
-  //   stock: 50,
-  //   size: { name: "M", symbol: "M", fullName: "Medium" },
-  //   color: { name: "Blue", image: blueTshirt },
-  //   quantity: 1,
-  // };
-
-  // const accordionProduct: AccordionProductType = {
-  //   longDescription:
-  //     "A premium cotton t-shirt designed for everyday comfort and style. Made with 100% organic cotton and tailored for a relaxed fit, this shirt will quickly become a wardrobe essential.",
-  //   shortDescription:
-  //     "Soft, breathable, and sustainably made — your new favorite everyday t-shirt.",
-  //   highlights: [
-  //     "100% organic cotton",
-  //     "Relaxed fit",
-  //     "Pre-shrunk & garment dyed",
-  //     "Machine washable",
-  //     "Made in Portugal",
-  //   ],
-  //   shippingReturns:
-  //     "Free standard shipping on orders over $50. We also offer expedited shipping at checkout. To return an item, please visit our returns portal and use your order number to start the process.",
-  //   sizeFit:
-  //     "Fits true to size. For a looser fit, consider sizing up. Fabric has slight stretch.",
-  //   sizeChart: [
-  //     { size: "S", chest: "36-38", length: "27" },
-  //     { size: "M", chest: "39-41", length: "28" },
-  //     { size: "L", chest: "42-44", length: "29" },
-  //     { size: "XL", chest: "45-47", length: "30" },
-  //   ],
-  // };
-
   return (
     <div className="flex flex-col w-full">
       <div className="absolute bg-white-primary w-full">
         <Navbar />
       </div>
-      {/* sm:py-20 py-5 */}
       <div className=" bg-gray-50 w-full sm:pt-40 pt-28 sm:px-48 overflow-hiddenflex flex flex-col sm:gap-20 gap-10 pb-10">
         <div className=" flex-col gap-10 ">
           <ProductImageDetailsWrapper
