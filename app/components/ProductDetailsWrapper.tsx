@@ -35,7 +35,7 @@ const ProductImageDetailsWrapper = ({
           onColorChange={setSelectedColor}
         />
       </div>
-      <div className="flex flex-col sm:w-1/2 sm:pr-28 sm:px-0 sm:p-0 p-6 w-full overflow-hidden items-start">
+      <div className="flex flex-col sm:w-1/2 sm:pr-28 sm:px-0 sm:p-0 px-6 p w-full overflow-hidden items-start">
         <ProductDetails
           product={updatedProduct}
           colors={colors}

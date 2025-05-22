@@ -14,6 +14,10 @@ export type ProductType = {
   size: SizeType;
   color: ColorType;
   quantity: number;
+  sizeChart: SizeType[];
+  sizeFit: string;
+  sizeOptions: SizeType[];
+  colorOptions: ColorType[];
 };
 
 // export interface ProductCardProps {

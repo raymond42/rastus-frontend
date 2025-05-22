@@ -1,22 +1,115 @@
 import { ProductType } from "@/app/types/product";
 import {
   HoodiesCollection,
-  LongTshirts,
-  Pants,
   Shorts,
   Snapback,
-  Ccap,
   Jacket,
-  Jeans,
-  SoftLongValez,
-  TShirt,
 } from "@/public/our products";
 
+import {
+  blackHoodie,
+  greenHoodie,
+  brownHoodie,
+  hazeBlueHoodie,
+  darkGrayHoodie,
+  lightGrayHoodie,
+  sandHoodie,
+} from "@/public/productDetails/hoodies";
+import {
+  blueTshirt,
+  blackTshirt,
+  coffeeTshirt,
+  dirtyWhiteTshirt,
+  grayTshirt,
+  brownTshirt,
+  cementGrayTshirt,
+} from "@/public/productDetails/t-shirts";
+
+import {
+  whiteLaSnapback,
+  whiteSnapback,
+  blueLaSnapback,
+} from "@/public/productDetails/caps";
+
+import {
+  blackJacket,
+  brownJacket,
+  whiteJacket,
+} from "@/public/productDetails/jacket";
+
+import {
+  blackDoubleKneeWorkPants,
+  greenDoubleKneeWorkPants,
+  apricotDoubleKneeWorkPants,
+  khakiDoubleKneeWorkPants,
+} from "@/public/productDetails/double-knee-work-pants";
+import {
+  blackShort,
+  grayShort,
+  greenShort,
+} from "@/public/productDetails/shorts";
+import {
+  blackLooseHoodie,
+  brownLooseHoodie,
+  grayLooseHoodie,
+  whiteLooseHoodie,
+} from "@/public/productDetails/loose-hoodies";
+import {
+  beigeLongSleeveTshirts,
+  blackLongSleeveTshirts,
+  browLongSleeveTshirts,
+  geayLongSleeveTshirts,
+  whiteLongSleeveTshirts,
+  greenLongSleeveTshirts,
+} from "@/public/productDetails/long-sleeve-t-shirts";
+import {
+  ashColarValez,
+  blackColarValez,
+  brownColarValez,
+  grayColarValez,
+  whiteColarValez,
+} from "@/public/productDetails/colar-valez-sweater";
+
+export const DEFAULT_SIZE_OPTIONS = [
+  { name: "S", symbol: "S", fullName: "Small" },
+  { name: "M", symbol: "M", fullName: "Medium" },
+  { name: "L", symbol: "L", fullName: "Large" },
+  { name: "XL", symbol: "XL", fullName: "Extra Large" },
+];
+
 export const DEFAULT_SIZE_CHART = [
-  { size: "S", chest: '38-40"', length: '27"' },
-  { size: "M", chest: '41-43"', length: '28"' },
-  { size: "L", chest: '44-46"', length: '29"' },
-  { size: "XL", chest: '47-49"', length: '30"' },
+  {
+    size: "S",
+    chest: '38-40"',
+    length: '27"',
+    name: "S",
+    symbol: "S",
+    fullName: "Small",
+  },
+  {
+    size: "M",
+    chest: '41-43"',
+    length: '28"',
+    name: "M",
+    symbol: "M",
+    fullName: "Medium",
+  },
+  {
+    size: "L",
+    chest: '44-46"',
+    length: '29"',
+    name: "L",
+    symbol: "L",
+    fullName: "Large",
+  },
+  {
+    size: "XL",
+    chest: '47-49"',
+    length: '30"',
+    name: "XL",
+    symbol: "XL",
+    fullName: "Extra Large",
+  },
 ];
 
 export const PANTS_SIZE_CHART = [
@@ -45,6 +138,7 @@ const defaultMeta = {
   sizeFit:
     "Fits true to size. For a looser fit, consider sizing up. Fabric has slight stretch.",
   sizeChart: DEFAULT_SIZE_CHART,
+  sizeOptions: DEFAULT_SIZE_OPTIONS,
 };
 
 const defaultProductMeta = {
@@ -56,7 +150,7 @@ const defaultProductMeta = {
 export const Products: ProductType[] = [
   {
     id: "1",
-    name: "Hoodies",
+    name: "Loose Perfect Hoodie",
     image: HoodiesCollection,
     rating: 4.5,
     price: "30k FRW",
@@ -64,41 +158,65 @@ export const Products: ProductType[] = [
     category: "Hoodies",
     stock: 50,
     size: defaultProductMeta.size,
-    color: defaultProductMeta.color,
+    color: { name: "Dark Gray", image: darkGrayHoodie },
     quantity: defaultProductMeta.quantity,
+    colorOptions: [
+      { name: "Dark Gray", image: blackHoodie },
+      { name: "Dark Gray", image: darkGrayHoodie },
+      { name: "Haze Blue", image: hazeBlueHoodie },
+      { name: "Green", image: greenHoodie },
+      { name: "Brown", image: brownHoodie },
+      { name: "Sand", image: sandHoodie },
+      { name: "Light Gray", image: lightGrayHoodie },
+    ],
     ...defaultMeta,
   },
   {
     id: "2",
-    name: "Long T-shirts",
-    image: LongTshirts,
+    name: "T-shirt",
+    image: blueTshirt,
     rating: 4.8,
     price: "25k FRW",
     reviews: 15,
     category: "T-shirts",
     stock: 30,
     size: defaultProductMeta.size,
-    color: defaultProductMeta.color,
+    color: { name: "Blue", image: blueTshirt },
     quantity: defaultProductMeta.quantity,
+    colorOptions: [
+      { name: "Blue", image: blueTshirt },
+      { name: "Black", image: blackTshirt },
+      { name: "Coffee", image: coffeeTshirt },
+      { name: "Dirty White", image: dirtyWhiteTshirt },
+      { name: "Gray", image: grayTshirt },
+      { name: "Brown", image: brownTshirt },
+      { name: "Cement Gray", image: cementGrayTshirt },
+    ],
     ...defaultMeta,
   },
   {
     id: "3",
-    name: "Pants",
-    image: Pants,
+    name: "Double Knee Work Pant",
+    image: blackDoubleKneeWorkPants,
     rating: 4.8,
     price: "25k FRW",
     reviews: 15,
     category: "Pants",
     stock: 30,
     size: defaultProductMeta.size,
-    color: defaultProductMeta.color,
+    color: { name: "Black", image: blackDoubleKneeWorkPants },
     quantity: defaultProductMeta.quantity,
+    colorOptions: [
+      { name: "Black", image: blackDoubleKneeWorkPants },
+      { name: "Green", image: greenDoubleKneeWorkPants },
+      { name: "Apricot", image: apricotDoubleKneeWorkPants },
+      { name: "Khaki", image: khakiDoubleKneeWorkPants },
+    ],
     ...defaultMeta,
   },
   {
     id: "4",
-    name: "Shorts",
+    name: "Quick Dry short",
     image: Shorts,
     rating: 4.8,
     price: "25k FRW",
@@ -108,6 +226,11 @@ export const Products: ProductType[] = [
     size: defaultProductMeta.size,
     color: defaultProductMeta.color,
     quantity: defaultProductMeta.quantity,
+    colorOptions: [
+      { name: "Black", image: blackShort },
+      { name: "Green", image: greenShort },
+      { name: "Gray", image: grayShort },
+    ],
     ...defaultMeta,
   },
   {
@@ -122,25 +245,16 @@ export const Products: ProductType[] = [
     size: defaultProductMeta.size,
     color: defaultProductMeta.color,
     quantity: defaultProductMeta.quantity,
-    ...defaultMeta,
-  },
-  {
-    id: "6",
-    name: "C-cap",
-    image: Ccap,
-    rating: 4.8,
-    price: "25k FRW",
-    reviews: 15,
-    category: "C-cap",
-    stock: 30,
-    size: defaultProductMeta.size,
-    color: defaultProductMeta.color,
-    quantity: defaultProductMeta.quantity,
+    colorOptions: [
+      { name: "White", image: whiteLaSnapback },
+      { name: "Beige", image: whiteSnapback },
+      { name: "Blue", image: blueLaSnapback },
+    ],
     ...defaultMeta,
   },
   {
     id: "7",
-    name: "Jacket",
+    name: "Vintage Jacket",
     image: Jacket,
     rating: 4.8,
     price: "25k FRW",
@@ -150,41 +264,60 @@ export const Products: ProductType[] = [
     size: defaultProductMeta.size,
     color: defaultProductMeta.color,
     quantity: defaultProductMeta.quantity,
+    colorOptions: [
+      { name: "Black", image: blackJacket },
+      { name: "Brown", image: brownJacket },
+      { name: "White", image: whiteJacket },
+    ],
     ...defaultMeta,
   },
   {
     id: "8",
-    name: "Jeans",
-    image: Jeans,
+    name: "Rastus Loose Hoodie",
+    image: blackLooseHoodie,
     rating: 4.8,
     price: "25k FRW",
     reviews: 15,
-    category: "Jeans",
+    category: "Hoodies",
     stock: 30,
     size: defaultProductMeta.size,
-    color: defaultProductMeta.color,
+    color: { name: "Black", image: blackLooseHoodie },
     quantity: defaultProductMeta.quantity,
+    colorOptions: [
+      { name: "Black", image: blackLooseHoodie },
+      { name: "Brown", image: brownLooseHoodie },
+      { name: "Gray", image: grayLooseHoodie },
+      { name: "White", image: whiteLooseHoodie },
+    ],
     ...defaultMeta,
   },
 
   {
     id: "9",
-    name: "Soft Long Valez",
-    image: SoftLongValez,
+    name: "Long Sleeve T-Shirts",
+    image: whiteLongSleeveTshirts,
     rating: 4.8,
     price: "25k FRW",
     reviews: 15,
-    category: "Soft Long Valez",
+    category: "T-shirts",
     stock: 30,
     size: defaultProductMeta.size,
-    color: defaultProductMeta.color,
+    color: { name: "White", image: whiteLongSleeveTshirts },
     quantity: defaultProductMeta.quantity,
+    colorOptions: [
+      { name: "White", image: whiteLongSleeveTshirts },
+      { name: "White", image: blackLongSleeveTshirts },
+      { name: "Beige", image: beigeLongSleeveTshirts },
+      { name: "Brown", image: browLongSleeveTshirts },
+      { name: "Gray", image: geayLongSleeveTshirts },
+      { name: "Green", image: greenLongSleeveTshirts },
+    ],
     ...defaultMeta,
   },
   {
     id: "10",
-    name: "T-shirt",
-    image: TShirt,
+    name: "Rastus Colar Valez",
+    image: ashColarValez,
     rating: 4.7,
     price: "20k FRW",
     reviews: 15,
@@ -193,6 +326,13 @@ export const Products: ProductType[] = [
     size: defaultProductMeta.size,
     color: defaultProductMeta.color,
     quantity: defaultProductMeta.quantity,
+    colorOptions: [
+      { name: "Ash", image: ashColarValez },
+      { name: "Brown", image: brownColarValez },
+      { name: "Black", image: blackColarValez },
+      { name: "Gray", image: grayColarValez },
+      { name: "White", image: whiteColarValez },
+    ],
     ...defaultMeta,
   },
 ];
