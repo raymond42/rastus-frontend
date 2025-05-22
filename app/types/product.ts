@@ -14,7 +14,27 @@ export type ProductType = {
   size: SizeType;
   color: ColorType;
   quantity: number;
+  sizeChart: SizeType[];
+  sizeFit: string;
+  sizeOptions: SizeType[];
+  colorOptions: ColorType[];
 };
+
+// export interface ProductCardProps {
+//   name: string;
+//   image: StaticImageData | string;
+//   rating: number;
+//   price: string;
+//   shortDescription?: string;
+//   longDescription?: string;
+//   shippingReturns?: string;
+//   sizeFit?: string;
+//   sizeChart?: any[];
+//   reviews?: number;
+//   category?: string;
+//   stock?: number;
+//   quantity?: number;
+// }
 
 export type ColorType = {
   name: string;

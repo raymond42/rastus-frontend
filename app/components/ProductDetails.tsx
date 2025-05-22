@@ -1,11 +1,17 @@
+"use client";
 import React from "react";
 import { montserrat, montserratBold } from "@/app/utils/fonts";
 import { ProductType, ColorType, SizeType } from "@/app/types/product";
 import Box from "./Box";
 import QuantitySelector from "./QuantitySelector";
-import { CiClock2, CiRuler, CiHeart } from "react-icons/ci";
+import { CiClock2, CiRuler } from "react-icons/ci";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 import { Button } from "@/components/ui/button";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, toggleCart } from "@/lib/redux/slices/cartSlice";
+import { useToast } from "@/hooks/use-toast";
+import { RootState } from "@/lib/redux/store";
+import { FaShoppingCart } from "react-icons/fa";
 
 type ProductDetailsProps = {
   product: ProductType;
@@ -23,12 +29,46 @@ const ProductDetails = ({
   sizeOptions,
   onSizeChange,
 }: ProductDetailsProps) => {
+  const dispatch = useDispatch();
+
+  const { toast } = useToast();
+  const cartItems = useSelector((state: RootState) => state.cart.items);
+
   const handleColorChange = (item: ColorType | SizeType) => {
     onColorChange(item as ColorType);
   };
 
   const handleSizeChange = (item: ColorType | SizeType) => {
     onSizeChange(item as SizeType);
+  };
+
+  const handleAddToBag = () => {
+    const cartItem = {
+      ...product,
+      size: product.size,
+      color: product.color,
+      quantity: product.quantity,
+    };
+
+    const exists = cartItems.some(
+      (item) =>
+        item.id === product.id &&
+        item.size.name === product.size.name &&
+        item.color.name === product.color.name
+    );
+
+    if (exists) {
+      toast({
+        title: "Already in cart",
+        description: "This item is already in your cart.",
+        variant: "default", // or "destructive", or your custom style
+        duration: 2000,
+      });
+      return;
+    }
+
+    dispatch(addToCart(cartItem));
+    dispatch(toggleCart()); // show cart after adding
   };
 
   return (
@@ -74,7 +114,9 @@ const ProductDetails = ({
           Price
         </h1>
         <div className="flex items-center gap-4">
-          <p className={`${montserrat.className} text-[22px]`}>20k RWF</p>
+          <p className={`${montserrat.className} text-[22px]`}>
+            {product.price}
+          </p>
           <RiVerifiedBadgeFill className="text-primary opacity-85" size={25} />
         </div>
       </div>
@@ -105,18 +147,19 @@ const ProductDetails = ({
       </div>
       <div className="Buttons flex flex-col gap-5 mt-4">
         <Button
-          className={`${montserrat.className} text-[18px] capitalize border-2 border-primary sm:w-[500px] w-full h-[40px] bg-transparent text-primary hover:text-opacity-65 hover:bg-transparent hover:border-opacity-65 rounded-md`}
+          className={`${montserrat.className} capitalize text-[18px] border-2 border-primary bg-primary text-white-primary sm:w-[500px] w-full h-[40px] rounded-md flex justify-center items-center gap-4`}
+          onClick={() => handleAddToBag()}
         >
-          Add to bag
+          <FaShoppingCart /> Add To Cart
         </Button>
-        <Button
+        {/* <Button
           className={`${montserrat.className} capitalize text-[18px] border-2 border-primary bg-primary text-white-primary sm:w-[500px] w-full h-[40px] rounded-md flex justify-center items-center gap-4`}
         >
           <span>
             <CiHeart />
           </span>
           Add to wishlist
-        </Button>
+        </Button> */}
       </div>
     </div>
   );
