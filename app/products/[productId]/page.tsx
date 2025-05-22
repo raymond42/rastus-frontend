@@ -10,9 +10,9 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/lib/redux/store";
 
 export default function ProductDetailsPage() {
-  const { id } = useParams();
+  const { productId } = useParams();
   const products = useSelector((state: RootState) => state.products.products);
-  const product = products.find((p) => p.id === id);
+  const product = products.find((p) => p.id === productId);
 
   if (!product) return notFound();
 
