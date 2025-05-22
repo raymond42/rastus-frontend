@@ -16,19 +16,19 @@ type ProductCardProps = {
 
 const HeavenlyHitsData: ProductCardProps[] = [
   {
-    name: "Hoodies",
+    name: "Be Fearlessly Hoodie",
     image: HoodyHeavenly,
     rating: 4.5,
     price: "30k FRW",
   },
   {
-    name: "T-Shirts",
+    name: "Old School T-Shirt",
     image: TshirtHeavenly,
     rating: 4.7,
     price: "20k FRW",
   },
   {
-    name: "Caps",
+    name: "Rastus White snapback",
     image: CapHeavenly,
     rating: 4.8,
     price: "15k FRW",
@@ -69,10 +69,9 @@ const BestSeller = () => {
               image={product.image}
               rating={product.rating}
               price={product.price}
-              isButtonDisabled={true}
+              isButtonDisabled={false}
               key={key}
             />
-            // <BestSellerCardSlider />
           ))}
         </div>
         <div className="py-10 sm:hidden block">

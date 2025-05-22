@@ -8,16 +8,16 @@ import { Products } from "@/app/constants";
 
 const OurProducts = () => {
   return (
-    <div className="flex flex-col gap-10 items-center sm:p-16 p-3 bg-lightBrown-50">
+    <div
+      id="products"
+      className="flex flex-col gap-10 items-center sm:p-16 p-3 bg-lightBrown-50 scroll-mt-24"
+    >
       <h1
         className={`${frankRuhlLibrevBold.className} text-primary text-[48px]`}
       >
         Our Products
       </h1>
-
       <ProductNavItems />
-
-      {/* Ensure wrapping works correctly */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
         {Products.map((product, key) => (
           <Link href={`/products/${product.id}`} key={key}>
@@ -26,14 +26,12 @@ const OurProducts = () => {
               image={product.image}
               rating={product.rating}
               price={product.price}
-              isButtonDisabled={false}
+              isButtonDisabled={true}
               key={key}
             />
           </Link>
         ))}
       </div>
-
-      {/* Ensure wrapping works correctly */}
     </div>
   );
 };
