@@ -9,6 +9,7 @@ import { RootState } from "@/lib/redux/store";
 import { addToCart, toggleCart } from "@/lib/redux/slices/cartSlice";
 import { useToast } from "@/hooks/use-toast";
 import { ProductType } from "../types/product";
+import Link from "next/link";
 
 const BestSeller: React.FC = () => {
   const dispatch = useDispatch();
@@ -56,16 +57,21 @@ const BestSeller: React.FC = () => {
             These are the best-selling products of the month. They are customer
             favorites and are highly recommended.
           </p>
-          <Button
+          {/* <Button
             textColor="text-white-primary"
             textSize="text-[14px]"
             borderColor="white-primary"
             width="w-48"
             height="h-16"
             className="hover:bg-white-primary hover:text-primary sm:block hidden"
+          > */}
+          <Link
+            href="/#products"
+            className="hover:bg-white-primary hover:text-primary sm:flex hidden text-white-primary text-[14px] border-2 border-white-primary w-48 h-16 justify-center font-bold items-center"
           >
             SEE MORE
-          </Button>
+          </Link>
+          {/* </Button> */}
         </div>
         <div className="flex sm:flex-row flex-wrap sm:flex-nowrap justify-center sm:gap-6 gap-2 sm:pt-32 pt-6 sm:pl-16">
           {featuredProducts.map((product) => (
