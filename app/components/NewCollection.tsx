@@ -3,7 +3,7 @@ import React from "react";
 import capsCollection from "@/public/newCollection/caps-collection.png";
 import hoodiesCollection from "@/public/newCollection/hoodies-collection.png";
 import tshirtsCollection from "@/public/newCollection/t-shirts-collection.png";
-import { frankRuhlLibrev, frankRuhlLibrevBold } from "@/app/utils/fonts";
+import { jost, jostSemiBold } from "@/app/utils/fonts";
 import SquaredDots from "@/public/newCollection/squared-dots.svg";
 
 const NewCollection = () => {
@@ -26,13 +26,11 @@ const NewCollection = () => {
     <div className="sm:px-40 pt-10 relative flex flex-col sm:justify-center text-center gap-5 sm:pt-16 bg-lightBrown-20 h-full">
       <div className="w-full flex flex-col items-center gap-5 sm:py-10 py-3">
         <h1
-          className={`${frankRuhlLibrevBold.className} sm:text-7xl text-5xl text-primary`}
+          className={`${jostSemiBold.className} sm:text-7xl text-5xl text-primary`}
         >
           What&apos;s Trending?
         </h1>
-        <p
-          className={`${frankRuhlLibrev.className} sm:text-xl text-lg text-primary`}
-        >
+        <p className={`${jost.className} sm:text-xl text-lg text-primary`}>
           Unleash Your Inner Style Icon with Rastus closet: The Ultimate Fashion
           Must-Have!
         </p>
@@ -51,7 +49,7 @@ const NewCollection = () => {
               />
             </div>
             <button
-              className={`${frankRuhlLibrevBold.className} text-primary sm:text-[18px] bg-white-primary h-16 relative w-9/12 bottom-20 flex justify-center items-center hover:bg-primary hover:text-white-primary`}
+              className={`${jostSemiBold.className} text-primary sm:text-[18px] bg-white-primary h-16 relative w-9/12 bottom-20 flex justify-center items-center hover:bg-primary hover:text-white-primary`}
             >
               {item.title}
             </button>

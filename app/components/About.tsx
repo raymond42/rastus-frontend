@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { frankRuhlLibrev, frankRuhlLibrevBold } from "@/app/utils/fonts";
+import { jost, jostSemiBold } from "@/app/utils/fonts";
 import aboutUsCover from "@/public/about-us-cover.png";
 import SquaredDots from "@/public/newCollection/squared-dots.svg";
 import logoWithBackground from "@/public/logo-color.png";
@@ -46,12 +46,12 @@ const About: React.FC = () => {
         {/* Right Text Section */}
         <div className="sm:w-1/2 sm:pl-[100px] flex flex-col sm:block text-center items-center sm:text-start">
           <h1
-            className={`${frankRuhlLibrevBold.className} sm:leading-[78px] sm:text-7xl text-5xl text-primary pt-6 sm:pt-0`}
+            className={`${jostSemiBold.className} sm:leading-[78px] sm:text-7xl text-5xl text-primary pt-6 sm:pt-0`}
           >
             Rastus Crafted For The Few.
           </h1>
           <p
-            className={`${frankRuhlLibrev.className} pt-[30px] text-[20px] leading-[180%] text-primary`}
+            className={`${jost.className} pt-[30px] text-[20px] leading-[180%] text-primary`}
           >
             At Rastus, we believe fashion should speak your language. That’s why
             we’ve created a space where you don’t just wear clothes — you design
@@ -61,7 +61,7 @@ const About: React.FC = () => {
             twist, every piece tells a story <br />
           </p>
           <button
-            className={`${frankRuhlLibrev.className} w-[188px] text-[20px] text-center text-primary border border-primary mt-6 px-6 py-2 flex rounded-full hover:text-[22px] duration-500 transition-all hover:bg-primary hover:text-lightBrown-50`}
+            className={`${jost.className} w-[188px] text-[20px] text-center text-primary border border-primary mt-6 px-6 py-2 flex rounded-full hover:text-[22px] duration-500 transition-all hover:bg-primary hover:text-lightBrown-50`}
           >
             Read More <span className="pl-4">&gt;</span>
           </button>
@@ -89,13 +89,11 @@ const About: React.FC = () => {
             }`}
           >
             <h1
-              className={`${frankRuhlLibrevBold.className} text-[40px] leading-[78px]`}
+              className={`${jostSemiBold.className} text-[40px] leading-[78px]`}
             >
               {item.number}
             </h1>
-            <p
-              className={`${frankRuhlLibrev.className} text-lg leading-[180%]`}
-            >
+            <p className={`${jost.className} text-lg leading-[180%]`}>
               {item.text}
             </p>
           </div>

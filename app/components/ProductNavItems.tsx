@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { frankRuhlLibrev, frankRuhlLibrevBold } from "../utils/fonts";
+import { jost, jostSemiBold } from "../utils/fonts";
 
 const productNavItems = ["HOT", "ON SALE", "TRENDING NOW", "NEW ARRIVAL"];
 
@@ -14,8 +14,8 @@ const ProductNavItems = () => {
           key={index}
           className={`cursor-pointer transition-all text-[11px] sm:text-[16px] ${
             activeIndex === index
-              ? `${frankRuhlLibrevBold.className} underline`
-              : frankRuhlLibrev.className
+              ? `${jostSemiBold.className} underline`
+              : jost.className
           } text-primary`}
           onClick={() => setActiveIndex(index)}
         >

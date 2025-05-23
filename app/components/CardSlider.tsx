@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import { FreeMode, Pagination } from "swiper/modules";
-import { frankRuhlLibrev, frankRuhlLibrevBold } from "../utils/fonts";
+import { jost, jostSemiBold } from "../utils/fonts";
 import Image from "next/image";
 import profileAvatar from "@/public/profile-avatar.png";
 
@@ -36,13 +36,13 @@ const CardSlider = () => {
           <SwiperSlide key={key}>
             <div className="pb-20 flex flex-col items-center gap-6 bg-lightBrown-100 p-10 sm:mb-20 mb-14 rounded-lg cursor-pointer">
               <p
-                className={`${frankRuhlLibrevBold.className} text-[18px] leading-[157%] text-primary text-center`}
+                className={`${jostSemiBold.className} text-[18px] leading-[157%] text-primary text-center`}
               >
                 Comfortable and met all my expectations! I ordered a medium and
                 it fit perfectly
               </p>
               <p
-                className={`${frankRuhlLibrev.className} text-[14px] leading-[30px] opacity-75 text-center`}
+                className={`${jost.className} text-[14px] leading-[30px] opacity-75 text-center`}
               >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
                 lacus, auctor pretium ac ultrices.
@@ -56,12 +56,12 @@ const CardSlider = () => {
                   className="rounded-full"
                 />
                 <h1
-                  className={`${frankRuhlLibrevBold.className} text-[16px] text-primary`}
+                  className={`${jostSemiBold.className} text-[16px] text-primary`}
                 >
                   Anisa Zahra
                 </h1>
                 <p
-                  className={`${frankRuhlLibrev.className} text-[14px] text-primary opacity-75 leading-[24px]`}
+                  className={`${jost.className} text-[14px] text-primary opacity-75 leading-[24px]`}
                 >
                   Founder Milenial
                 </p>

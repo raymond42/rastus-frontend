@@ -112,9 +112,9 @@ const Navbar = () => {
             <CiShoppingCart className="w-11 h-12 font-bold hover:text-gray-500 transition-colors" />
           </div>
         </button>
-        <button className="sm:block hidden border border-primary font-bold text-primary rounded hover:bg-primary hover:text-white-primary transition-colors w-[108px] h-[45px]">
+        {/* <button className="sm:block hidden border border-primary font-bold text-primary rounded hover:bg-primary hover:text-white-primary transition-colors w-[108px] h-[45px]">
           LOGIN
-        </button>
+        </button> */}
         <div className="sm:hidden block pr-3">
           <RiMenu3Fill className="w-7 h-7" onClick={handleClickMenuBurger} />
         </div>

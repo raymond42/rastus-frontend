@@ -1,9 +1,10 @@
 import Image, { StaticImageData } from "next/image";
 import React from "react";
 import customizedHoodie from "@/public/productSeller/customized-hoodie.png";
-import { frankRuhlLibrevBold, jost } from "../utils/fonts";
-import Button from "./Button";
+import { jostSemiBold, jost } from "../utils/fonts";
+
 import { FaShoppingCart } from "react-icons/fa";
+import { Button } from "@/components/ui/button";
 
 type ProductCardProps = {
   name: string;
@@ -11,6 +12,7 @@ type ProductCardProps = {
   image: StaticImageData | string;
   rating?: number;
   isButtonDisabled?: boolean;
+  onAddToCart?: () => void;
 };
 
 const ProductCard = ({
@@ -18,6 +20,7 @@ const ProductCard = ({
   price,
   image,
   isButtonDisabled,
+  onAddToCart,
 }: ProductCardProps) => {
   return (
     <div className="bg-white-primary rounded-md w-[363px] shadow-sm hover:shadow-md transition-shadow">
@@ -38,7 +41,7 @@ const ProductCard = ({
         >
           <h1 className={`${jost.className} text-primary text-lg`}>{name}</h1>
           <p
-            className={`${frankRuhlLibrevBold.className} text-primary text-[16px] mt-1`}
+            className={`${jostSemiBold.className} text-primary text-[16px] mt-1`}
           >
             {price}
           </p>
@@ -48,8 +51,8 @@ const ProductCard = ({
         {!isButtonDisabled && (
           <div className="self-center">
             <Button
-              width=""
               className="flex items-center gap-2 px-4 py-2 bg-primary text-white-primary rounded-full text-sm hover:bg-opacity-90 transition"
+              onClick={onAddToCart}
             >
               <FaShoppingCart /> Add To Cart
             </Button>

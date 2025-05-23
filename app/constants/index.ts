@@ -70,6 +70,12 @@ import {
   whiteColarValez,
 } from "@/public/productDetails/colar-valez-sweater";
 
+import {
+  HoodyHeavenly,
+  TshirtHeavenly,
+  CapHeavenly,
+} from "@/public/productSeller";
+
 export const DEFAULT_SIZE_OPTIONS = [
   { name: "S", symbol: "S", fullName: "Small" },
   { name: "M", symbol: "M", fullName: "Medium" },
@@ -161,7 +167,7 @@ export const Products: ProductType[] = [
     color: { name: "Dark Gray", image: darkGrayHoodie },
     quantity: defaultProductMeta.quantity,
     colorOptions: [
-      { name: "Dark Gray", image: blackHoodie },
+      { name: "Black", image: blackHoodie },
       { name: "Dark Gray", image: darkGrayHoodie },
       { name: "Haze Blue", image: hazeBlueHoodie },
       { name: "Green", image: greenHoodie },
@@ -170,6 +176,7 @@ export const Products: ProductType[] = [
       { name: "Light Gray", image: lightGrayHoodie },
     ],
     ...defaultMeta,
+    isFeatured: false,
   },
   {
     id: "2",
@@ -193,6 +200,7 @@ export const Products: ProductType[] = [
       { name: "Cement Gray", image: cementGrayTshirt },
     ],
     ...defaultMeta,
+    isFeatured: false,
   },
   {
     id: "3",
@@ -213,6 +221,7 @@ export const Products: ProductType[] = [
       { name: "Khaki", image: khakiDoubleKneeWorkPants },
     ],
     ...defaultMeta,
+    isFeatured: false,
   },
   {
     id: "4",
@@ -232,6 +241,7 @@ export const Products: ProductType[] = [
       { name: "Gray", image: grayShort },
     ],
     ...defaultMeta,
+    isFeatured: false,
   },
   {
     id: "5",
@@ -251,6 +261,7 @@ export const Products: ProductType[] = [
       { name: "Blue", image: blueLaSnapback },
     ],
     ...defaultMeta,
+    isFeatured: false,
   },
   {
     id: "7",
@@ -270,6 +281,7 @@ export const Products: ProductType[] = [
       { name: "White", image: whiteJacket },
     ],
     ...defaultMeta,
+    isFeatured: false,
   },
   {
     id: "8",
@@ -290,6 +302,7 @@ export const Products: ProductType[] = [
       { name: "White", image: whiteLooseHoodie },
     ],
     ...defaultMeta,
+    isFeatured: false,
   },
 
   {
@@ -306,13 +319,14 @@ export const Products: ProductType[] = [
     quantity: defaultProductMeta.quantity,
     colorOptions: [
       { name: "White", image: whiteLongSleeveTshirts },
-      { name: "White", image: blackLongSleeveTshirts },
+      { name: "Black", image: blackLongSleeveTshirts },
       { name: "Beige", image: beigeLongSleeveTshirts },
       { name: "Brown", image: browLongSleeveTshirts },
       { name: "Gray", image: geayLongSleeveTshirts },
       { name: "Green", image: greenLongSleeveTshirts },
     ],
     ...defaultMeta,
+    isFeatured: false,
   },
   {
     id: "10",
@@ -334,5 +348,54 @@ export const Products: ProductType[] = [
       { name: "White", image: whiteColarValez },
     ],
     ...defaultMeta,
+    isFeatured: false,
+  },
+  {
+    id: "11",
+    name: "Be Fearlessly Hoodie",
+    image: HoodyHeavenly,
+    rating: 4.5,
+    price: "30k FRW",
+    reviews: 15,
+    category: "T-shirt",
+    stock: 30,
+    size: defaultProductMeta.size,
+    color: { name: "Red", image: HoodyHeavenly },
+    quantity: 1,
+    colorOptions: [{ name: "Red", image: HoodyHeavenly }],
+    ...defaultMeta,
+    isFeatured: true,
+  },
+  {
+    id: "12",
+    name: "Old School T-Shirt",
+    image: TshirtHeavenly,
+    rating: 4.7,
+    price: "24k FRW",
+    reviews: 15,
+    category: "T-shirt",
+    stock: 30,
+    size: defaultProductMeta.size,
+    color: { name: "Red", image: TshirtHeavenly },
+    quantity: defaultProductMeta.quantity,
+    colorOptions: [{ name: "Gray", image: TshirtHeavenly }],
+    ...defaultMeta,
+    isFeatured: true,
+  },
+  {
+    id: "13",
+    name: "Rastus White snapback",
+    image: CapHeavenly,
+    rating: 4.8,
+    price: "15k FRW",
+    reviews: 15,
+    category: "T-shirt",
+    stock: 30,
+    size: { name: "M", symbol: "M", fullName: "Medium" },
+    color: { name: "Creamy and Black", image: CapHeavenly },
+    quantity: defaultProductMeta.quantity,
+    colorOptions: [{ name: "Creamy and Black", image: CapHeavenly }],
+    ...defaultMeta,
+    isFeatured: true,
   },
 ];

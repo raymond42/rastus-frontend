@@ -1,5 +1,5 @@
 import React from "react";
-import { frankRuhlLibrev, frankRuhlLibrevBold } from "../utils/fonts";
+import { jost, jostSemiBold } from "../utils/fonts";
 import DealTime from "./DealTime";
 import Button from "./Button";
 import Image from "next/image";
@@ -13,13 +13,11 @@ const DealOfTheDay = () => {
         {/* Left Content Section */}
         <div className="flex flex-col gap-6 sm:w-1/2 w-full p-6 sm:p-16">
           <h1
-            className={`${frankRuhlLibrevBold.className} text-4xl sm:text-5xl text-primary`}
+            className={`${jostSemiBold.className} text-4xl sm:text-5xl text-primary`}
           >
             Limited Time Offer
           </h1>
-          <p
-            className={`${frankRuhlLibrev.className} text-primary text-base sm:text-lg`}
-          >
+          <p className={`${jost.className} text-primary text-base sm:text-lg`}>
             Don’t miss out — today’s exclusive deal won’t last long! Handpicked
             pieces at unbeatable prices, available for 24 hours only
           </p>

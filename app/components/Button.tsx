@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { frankRuhlLibrevBold } from "@/app/utils/fonts";
+import { jostSemiBold } from "@/app/utils/fonts";
 import clsx from "clsx";
 
 type ButtonProps = {
@@ -27,7 +27,7 @@ const Button = ({
   return (
     <button
       className={clsx(
-        frankRuhlLibrevBold.className,
+        jostSemiBold.className,
         "border-2",
         textColor,
         textSize,

@@ -18,6 +18,7 @@ export type ProductType = {
   sizeFit: string;
   sizeOptions: SizeType[];
   colorOptions: ColorType[];
+  isFeatured: boolean;
 };
 
 // export interface ProductCardProps {

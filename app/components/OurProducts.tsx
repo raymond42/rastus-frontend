@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { frankRuhlLibrevBold } from "../utils/fonts";
+import { jostSemiBold } from "../utils/fonts";
 import ProductNavItems from "./ProductNavItems";
 import ProductCard from "./ProductCard";
 import Link from "next/link";
@@ -12,9 +12,7 @@ const OurProducts = () => {
       id="products"
       className="flex flex-col gap-10 items-center sm:p-16 p-3 bg-lightBrown-50 scroll-mt-24"
     >
-      <h1
-        className={`${frankRuhlLibrevBold.className} text-primary text-[48px]`}
-      >
+      <h1 className={`${jostSemiBold.className} text-primary text-[48px]`}>
         Our Products
       </h1>
       <ProductNavItems />
