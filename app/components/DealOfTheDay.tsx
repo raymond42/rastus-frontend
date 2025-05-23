@@ -21,6 +21,9 @@ const DealOfTheDay = () => {
             Don’t miss out — today’s exclusive deal won’t last long! Handpicked
             pieces at unbeatable prices, available for 24 hours only
           </p>
+          <p className={`${jost.className} text-[16px] text-primary mt-4`}>
+            Time Remaining
+          </p>
           <div className="sm:w-[350px] w-full">
             <DealTime />
           </div>
