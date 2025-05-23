@@ -2,7 +2,6 @@
 
 import React from "react";
 import { jost, jostSemiBold } from "../utils/fonts";
-import Button from "./Button";
 import ProductCard from "./ProductCard";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/lib/redux/store";
@@ -87,7 +86,13 @@ const BestSeller: React.FC = () => {
           ))}
         </div>
         <div className="py-10 sm:hidden block">
-          <Button
+          <Link
+            href="/#products"
+            className="hover:bg-white-primary hover:text-primary flex text-white-primary text-[14px] border-2 border-white-primary w-48 h-16 justify-center font-bold items-center"
+          >
+            SEE MORE
+          </Link>
+          {/* <Button
             textColor="text-white-primary"
             textSize="text-[14px]"
             borderColor="white-primary"
@@ -96,7 +101,7 @@ const BestSeller: React.FC = () => {
             className="hover:bg-white-primary hover:text-primary"
           >
             SEE MORE
-          </Button>
+          </Button> */}
         </div>
       </div>
       <div>{/* <BestSellerCardSlider /> */}</div>
