@@ -29,7 +29,7 @@ export default function CheckoutPage() {
 
   useEffect(() => {
     dispatch(stopLoading());
-  }, []);
+  }, [dispatch]);
 
   const isFormValid =
     fullName.trim() !== "" &&
