@@ -9,6 +9,8 @@ import Image from "next/image";
 import { Trash2 } from "lucide-react";
 import { ConfirmDeleteDialog } from "./ConfirmDeleteDialog";
 import { useRouter } from "next/navigation";
+import { MouseEvent } from "react";
+import { startLoading } from "@/lib/redux/slices/loadingSlice";
 
 export default function CartDropdown() {
   const router = useRouter();
@@ -20,6 +22,13 @@ export default function CartDropdown() {
     const numericPrice = parseInt(item.price.replace(/[^\d]/g, ""), 10);
     return total + numericPrice * item.quantity;
   }, 0);
+
+  const handleClickCheckout = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    dispatch(closeCart());
+    dispatch(startLoading());
+    router.push("/checkout");
+  };
 
   return (
     <AnimatePresence>
@@ -124,11 +133,7 @@ export default function CartDropdown() {
                 {/* Checkout Button */}
                 <button
                   className="w-full py-2 bg-primary text-white rounded hover:bg-opacity-90 transition text-white-primary"
-                  onClick={() => {
-                    dispatch(closeCart());
-                    router.push("/checkout");
-                    // Navigate to checkout if needed
-                  }}
+                  onClick={(e) => handleClickCheckout(e)}
                 >
                   Go to Checkout
                 </button>

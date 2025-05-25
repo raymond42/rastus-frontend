@@ -3,13 +3,20 @@ import { cn } from "@/lib/utils";
 
 interface SpinnerProps {
   className?: string;
+  text?: string;
 }
 
-export function Spinner({ className }: SpinnerProps) {
+export function Spinner({
+  className,
+  text = "Just a moment...",
+}: SpinnerProps) {
   return (
-    <Loader
-      className={cn("h-6 w-6 animate-spin text-muted-foreground", className)}
-      role="status"
-    />
+    <div className="flex flex-col items-center justify-center space-y-2">
+      <Loader
+        className={cn("h-6 w-6 animate-spin text-white", className)}
+        role="status"
+      />
+      <p className="text-sm text-white-primary">{text}</p>
+    </div>
   );
 }

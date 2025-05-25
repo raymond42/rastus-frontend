@@ -53,9 +53,12 @@ const cartSlice = createSlice({
         );
       });
     },
+    clearCart: (state) => {
+      state.items = [];
+    },
   },
 });
 
-export const { toggleCart, closeCart, addToCart, removeFromCart } =
+export const { toggleCart, closeCart, addToCart, removeFromCart, clearCart } =
   cartSlice.actions;
 export default cartSlice.reducer;

@@ -1,7 +1,18 @@
+"use client";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { stopLoading } from "@/lib/redux/slices/loadingSlice";
+import { clearCart } from "@/lib/redux/slices/cartSlice";
 
 export default function ThankYouPage() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(clearCart());
+    dispatch(stopLoading());
+  }, [dispatch]);
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
       <div className="max-w-xl bg-white shadow-md p-10 rounded-lg text-center space-y-6">
