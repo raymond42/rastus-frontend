@@ -4,6 +4,8 @@ import "./globals.css";
 import { ReduxProvider } from "../lib/redux/provider";
 import { CartDropdown, Navbar } from "./components";
 import { Toaster } from "@/components/ui/toaster";
+import { PageTransitionSpinner } from "./providers/pageTransitionSpinner";
+PageTransitionSpinner;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +34,7 @@ export default function RootLayout({
       >
         <ReduxProvider>
           <div className="absolute bg-white-primary w-full">
+            <PageTransitionSpinner />
             <Navbar />
             <CartDropdown />
           </div>
