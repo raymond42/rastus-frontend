@@ -11,14 +11,6 @@ html {
   scroll-behavior: smooth;
 }
 
-.swiper-pagination-bullet {
-  width: 8px; /* Match --swiper-pagination-bullet-size */
-  height: 8px;
-  border: 1px solid #001f3f; /* Custom border */
-  background-color: transparent; /* Ensure inactive bullets are visible */
-  opacity: 10;
-}
-
 @layer base {
   :root {
     --background: 0 0% 100%;

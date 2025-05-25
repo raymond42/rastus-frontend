@@ -1,6 +1,6 @@
 import React from "react";
 import { jost, jostSemiBold } from "../utils/fonts";
-import CardSlider from "./CardSlider";
+// import CardSlider from "./CardSlider";
 
 const WhatPeopleSay = () => {
   return (
@@ -18,9 +18,7 @@ const WhatPeopleSay = () => {
           ullamcorper congue eros.
         </p>
       </div>
-      <div className="w-full pb-10 px-4">
-        <CardSlider />
-      </div>
+      <div className="w-full pb-10 px-4">{/* <CardSlider /> */}</div>
     </div>
   );
 };

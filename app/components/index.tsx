@@ -1,7 +1,7 @@
 import About from "./About";
 import BestSeller from "./BestSeller";
 import Button from "./Button";
-import CardSlider from "./CardSlider";
+// import CardSlider from "./CardSlider";
 import CartDropdown from "./CartDropDown";
 import { ConfirmDeleteDialog } from "./ConfirmDeleteDialog";
 import DealOfTheDay from "./DealOfTheDay";
@@ -22,7 +22,7 @@ export {
   ConfirmDeleteDialog,
   CartDropdown,
   Footer,
-  CardSlider,
+  // CardSlider,
   WhatPeopleSay,
   DealTime,
   DealOfTheDay,
