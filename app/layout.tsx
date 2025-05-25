@@ -5,7 +5,6 @@ import { ReduxProvider } from "../lib/redux/provider";
 import { CartDropdown, Navbar } from "./components";
 import { Toaster } from "@/components/ui/toaster";
 import { PageTransitionSpinner } from "./providers/pageTransitionSpinner";
-PageTransitionSpinner;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

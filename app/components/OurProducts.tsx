@@ -3,7 +3,7 @@
 import React, { MouseEvent } from "react";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
-import { startLoading, stopLoading } from "@/lib/redux/slices/loadingSlice";
+import { startLoading } from "@/lib/redux/slices/loadingSlice";
 
 import { jostSemiBold } from "../utils/fonts";
 import ProductCard from "./ProductCard";
