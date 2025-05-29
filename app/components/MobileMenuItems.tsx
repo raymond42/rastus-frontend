@@ -1,6 +1,7 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import { X } from "lucide-react";
-import Link from "next/link";
 
 type MenuItem = {
   label: string;
@@ -10,11 +11,17 @@ type MenuItem = {
 type MobileMenuItemsProps = {
   menuItems: MenuItem[];
   onClose: () => void;
+  currentPathname: string;
+  currentHash: string;
+  onNavigate: (href: string) => void;
 };
 
 const MobileMenuItems: React.FC<MobileMenuItemsProps> = ({
   menuItems,
   onClose,
+  currentPathname,
+  currentHash,
+  onNavigate,
 }) => {
   const [isClosing, setIsClosing] = useState(false);
 
@@ -26,20 +33,23 @@ const MobileMenuItems: React.FC<MobileMenuItemsProps> = ({
     if (isClosing) {
       const timeout = setTimeout(() => {
         onClose();
-      }, 300); // Match with the animation duration
+      }, 300);
       return () => clearTimeout(timeout);
     }
   }, [isClosing, onClose]);
 
-  const MenuItemLink: React.FC<MenuItem> = ({ label, href }) => (
-    <Link
-      href={href}
-      className="group relative text-xl font-semibold text-gray-800 hover:text-primary transition-colors"
-    >
-      {label}
-      <span className="block h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-    </Link>
-  );
+  const isActive = (href: string) => {
+    if (href.startsWith("#")) {
+      return currentPathname === "/" && currentHash === href;
+    } else {
+      return currentPathname === `/${href}` || currentPathname === `/${href}/`;
+    }
+  };
+
+  const handleClick = (href: string) => {
+    onNavigate(href);
+    handleClose();
+  };
 
   return (
     <div className="fixed inset-0 z-50">
@@ -55,7 +65,7 @@ const MobileMenuItems: React.FC<MobileMenuItemsProps> = ({
           isClosing ? "animate-slideOutRight" : "animate-slideInRight"
         }`}
       >
-        {/* Close Button */}
+        {/* Close button */}
         <div className="flex justify-end mb-8">
           <button
             onClick={handleClose}
@@ -72,32 +82,52 @@ const MobileMenuItems: React.FC<MobileMenuItemsProps> = ({
         {/* Menu Items */}
         <nav className="flex flex-col space-y-6 flex-1">
           {menuItems.map((item, index) => (
-            <MenuItemLink key={index} label={item.label} href={item.href} />
+            <button
+              key={index}
+              onClick={() => handleClick(item.href)}
+              className={`group relative text-xl font-semibold transition-colors ${
+                isActive(item.href)
+                  ? "text-primary underline underline-offset-4 decoration-2"
+                  : "text-gray-800 hover:text-primary"
+              }`}
+            >
+              {item.label}
+              <span className="block h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+            </button>
           ))}
         </nav>
 
         {/* Auth Actions */}
         <div className="mt-auto pt-8 flex flex-col space-y-4">
-          <Link
-            href="/#"
-            className="block w-full text-center bg-gradient-to-r from-primary to-secondary text-white font-medium py-3 rounded-xl shadow-md hover:opacity-90 transition"
+          <button
+            onClick={() => {
+              onNavigate("/login");
+              handleClose();
+            }}
+            className="block w-full bg-gradient-to-r from-primary to-secondary text-white font-medium py-3 rounded-xl shadow-md hover:opacity-90 transition"
           >
             Log In
-          </Link>
+          </button>
 
-          <Link
-            href="/#"
+          <button
+            onClick={() => {
+              onNavigate("/signup");
+              handleClose();
+            }}
             className="text-center text-primary hover:underline font-medium transition"
           >
             Don’t have an account? Sign Up
-          </Link>
+          </button>
 
-          <Link
-            href="/#"
+          <button
+            onClick={() => {
+              onNavigate("/forgot-password");
+              handleClose();
+            }}
             className="text-center text-sm text-gray-500 hover:underline transition"
           >
             Forgot your password?
-          </Link>
+          </button>
         </div>
       </div>
     </div>

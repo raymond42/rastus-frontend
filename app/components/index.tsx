@@ -1,7 +1,6 @@
 import About from "./About";
 import BestSeller from "./BestSeller";
 import Button from "./Button";
-// import CardSlider from "./CardSlider";
 import CartDropdown from "./CartDropDown";
 import { ConfirmDeleteDialog } from "./ConfirmDeleteDialog";
 import DealOfTheDay from "./DealOfTheDay";
@@ -11,6 +10,7 @@ import Hero from "./Hero";
 import Navbar from "./Navbar";
 import NewCollection from "./NewCollection";
 import OurProducts from "./OurProducts";
+import OurStory from "./OurStory";
 import { PaymentInstructionsModal } from "./PaymentInstructionsModal";
 import ProductCard from "./ProductCard";
 import ProductNavItems from "./ProductNavItems";
@@ -18,11 +18,11 @@ import StarRate from "./StarRate";
 import WhatPeopleSay from "./WhatPeopleSay";
 
 export {
+  OurStory,
   PaymentInstructionsModal,
   ConfirmDeleteDialog,
   CartDropdown,
   Footer,
-  // CardSlider,
   WhatPeopleSay,
   DealTime,
   DealOfTheDay,

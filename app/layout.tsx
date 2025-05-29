@@ -4,7 +4,7 @@ import "./globals.css";
 import { ReduxProvider } from "../lib/redux/provider";
 import { CartDropdown, Navbar } from "./components";
 import { Toaster } from "@/components/ui/toaster";
-import { PageTransitionSpinner } from "./providers/pageTransitionSpinner";
+import { PageTransitionSpinner, RouteChangeHandler } from "./providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,12 +28,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className="antialiased">
         <ReduxProvider>
+          <PageTransitionSpinner />
+          <RouteChangeHandler />
           <div className="absolute bg-white-primary w-full">
-            <PageTransitionSpinner />
             <Navbar />
             <CartDropdown />
           </div>

@@ -19,6 +19,8 @@ const OurProducts = () => {
   ) => {
     e.preventDefault();
     const href = `/products/${product.id}`;
+
+    // Dispatch loading start before navigation
     dispatch(startLoading());
 
     router.push(href);
