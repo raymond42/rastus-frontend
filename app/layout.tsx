@@ -4,6 +4,7 @@ import { ReduxProvider } from "../lib/redux/provider";
 import { CartDropdown, Navbar } from "./components";
 import { Toaster } from "@/components/ui/toaster";
 import { PageTransitionSpinner, RouteChangeHandler } from "./providers";
+import React, { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "RASTUS",
@@ -20,7 +21,9 @@ export default function RootLayout({
       <body className="antialiased">
         <ReduxProvider>
           <PageTransitionSpinner />
-          <RouteChangeHandler />
+          <Suspense>
+            <RouteChangeHandler />
+          </Suspense>
           <div className="absolute bg-white-primary w-full">
             <Navbar />
             <CartDropdown />
