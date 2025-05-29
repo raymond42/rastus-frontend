@@ -9,11 +9,11 @@ export const RouteChangeHandler = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const dispatch = useDispatch();
+  const searchParamsString = searchParams.toString();
 
   useEffect(() => {
-    // Stop loading spinner whenever route or query changes
     dispatch(stopLoading());
-  }, [pathname, searchParams.toString(), dispatch]);
+  }, [pathname, searchParamsString, dispatch]);
 
   return null;
 };

@@ -48,24 +48,25 @@ function OurStory() {
           Our Story
         </h1>
         <p className={`${jost.className} text-lg sm:text-xl leading-8`}>
-          Rastus started with a simple idea and a lot of passion. We've always
-          loved fashion, not just wearing it, but creating it. One thing we
-          noticed here in Rwanda was that while embroidery was being used for
+          Rastus started with a simple idea and a lot of passion. We&apos;ve
+          always loved fashion, not just wearing it, but creating it. One thing
+          we noticed here in Rwanda was that while embroidery was being used for
           customization, very few brands were actually making clothes and caps
-          from scratch and customizing them with embroidery. That’s where the
-          idea for Rastus came in.
+          from scratch and customizing them with embroidery. That&apos;s where
+          the idea for Rastus came in.
         </p>
         <p className={`${jost.className} text-lg sm:text-xl leading-8`}>
           We wanted to create something different, a brand where people could
           find pieces that reflect who they are. So we got an embroidery machine
           and started designing, making, and customizing clothes and caps
-          ourselves. At Rastus, you’ll find ready-made items we’ve designed, but
-          also the option to order something personalized just for you.
+          ourselves. At Rastus, you&apos;ll find ready-made items we&apos;ve
+          designed, but also the option to order something personalized just for
+          you.
         </p>
         <p className={`${jost.className} text-lg sm:text-xl leading-8`}>
-          It’s been an exciting journey so far, and we’re just getting started.
-          This is more than a brand to us, it’s a way to bring creativity and
-          individuality into everyday style.
+          It&apos;s been an exciting journey so far, and we&apos;re just getting
+          started. This is more than a brand to us, it&apos;s a way to bring
+          creativity and individuality into everyday style.
         </p>
 
         {/* Call to Action Button */}
@@ -104,7 +105,7 @@ function OurStory() {
           Reach Out to Us
         </h2>
         <p className={`${jost.className} text-lg sm:text-xl mb-8`}>
-          Have a question or custom idea? We'd love to hear from you.
+          Have a question or custom idea? We&apos;d love to hear from you.
         </p>
 
         {/* Contact Info */}
@@ -117,7 +118,7 @@ function OurStory() {
         {/* Contact Form */}
         {submitted ? (
           <p className="text-green-600 text-lg">
-            Thank you! We'll get back to you soon.
+            Thank you! We&apos;ll get back to you soon.
           </p>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6 text-left">

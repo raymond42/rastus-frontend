@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import LogoDarkBlue from "@/public/rastus-dark-blue-logo.png";
 import Image from "next/image";
 import { CiShoppingCart } from "react-icons/ci";
@@ -28,13 +28,16 @@ const Navbar = () => {
 
   const cartItems = useSelector((state: RootState) => state.cart.items);
 
-  const navItems: MenuItem[] = [
-    { label: "Our Story", href: "our-story" },
-    { label: "Products", href: "#products" },
-    { label: "Men", href: "#men" },
-    { label: "Women", href: "#women" },
-    { label: "Design Your Own", href: "#design" },
-  ];
+  const navItems = useMemo<MenuItem[]>(
+    () => [
+      { label: "Our Story", href: "our-story" },
+      { label: "Products", href: "#products" },
+      { label: "Men", href: "#men" },
+      { label: "Women", href: "#women" },
+      { label: "Design Your Own", href: "#design" },
+    ],
+    []
+  );
 
   useEffect(() => {
     const handleScroll = () => {
