@@ -49,11 +49,9 @@ function OurStory() {
         </h1>
         <p className={`${jost.className} text-lg sm:text-xl leading-8`}>
           Rastus started with a simple idea and a lot of passion. We&apos;ve
-          always loved fashion, not just wearing it, but creating it. One thing
-          we noticed here in Rwanda was that while embroidery was being used for
-          customization, very few brands were actually making clothes and caps
-          from scratch and customizing them with embroidery. That&apos;s where
-          the idea for Rastus came in.
+          always loved fashion, not just wearing it, but creating it. In Rwanda,
+          there&apos;s a real shortage of original designs featuring embroidery.
+          That inspired us to bring something fresh and unique to the market.
         </p>
         <p className={`${jost.className} text-lg sm:text-xl leading-8`}>
           We wanted to create something different, a brand where people could

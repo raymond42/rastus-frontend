@@ -30,8 +30,8 @@ const Navbar = () => {
 
   const navItems = useMemo<MenuItem[]>(
     () => [
-      { label: "Our Story", href: "our-story" },
       { label: "Products", href: "#products" },
+      { label: "Our Story", href: "our-story" },
       { label: "Men", href: "#men" },
       { label: "Women", href: "#women" },
       { label: "Design Your Own", href: "#design" },
