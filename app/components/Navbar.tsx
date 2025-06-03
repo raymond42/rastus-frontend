@@ -114,8 +114,10 @@ const Navbar = () => {
       <div>
         <button
           onClick={() => {
-            dispatch(startLoading());
-            router.push("/");
+            if (pathname !== "/") {
+              dispatch(startLoading());
+              router.push("/");
+            }
             setIsMenuOpen(false);
           }}
           className="cursor-pointer p-0 border-0 bg-transparent"
