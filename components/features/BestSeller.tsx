@@ -1,14 +1,14 @@
 "use client";
 
 import React from "react";
-import { jost, jostSemiBold } from "../utils/fonts";
-import ProductCard from "./ProductCard";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/lib/redux/store";
 import { addToCart, toggleCart } from "@/lib/redux/slices/cartSlice";
 import { useToast } from "@/hooks/use-toast";
-import { ProductType } from "../types/product";
+import { ProductType } from "@/app/types/product";
 import Link from "next/link";
+import { jost, jostSemiBold } from "@/utils/fonts";
+import ProductCard from "./ProductCard";
 
 const BestSeller: React.FC = () => {
   const dispatch = useDispatch();

@@ -7,10 +7,10 @@ import { Input } from "@/components/ui/input";
 import "react-phone-input-2/lib/style.css";
 import { useEffect, useState } from "react";
 import PhoneInput from "react-phone-input-2";
-import { PaymentInstructionsModal } from "../components";
+import { PaymentInstructionsModal } from "@/components/features";
 import { stopLoading } from "@/lib/redux/slices/loadingSlice";
 import { Button } from "@/components/ui/button";
-import { jost } from "../utils/fonts";
+import { jost } from "../../utils/fonts";
 
 export default function CheckoutPage() {
   const [phone, setPhone] = useState("");

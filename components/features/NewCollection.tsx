@@ -3,7 +3,7 @@ import React from "react";
 import capsCollection from "@/public/newCollection/caps-collection.png";
 import hoodiesCollection from "@/public/newCollection/hoodies-collection.png";
 import tshirtsCollection from "@/public/newCollection/t-shirts-collection.png";
-import { jost, jostSemiBold } from "@/app/utils/fonts";
+import { jost, jostSemiBold } from "@/utils/fonts";
 import SquaredDots from "@/public/newCollection/squared-dots.svg";
 
 const NewCollection = () => {

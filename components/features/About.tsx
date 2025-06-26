@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { jost, jostSemiBold } from "@/app/utils/fonts";
+import { jost, jostSemiBold } from "@/utils/fonts";
 import aboutUsCover from "@/public/about-us-cover.png";
 import SquaredDots from "@/public/newCollection/squared-dots.svg";
 import logoWithBackground from "@/public/logo-color.png";

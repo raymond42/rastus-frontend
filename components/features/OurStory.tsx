@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { jost, jostSemiBold } from "@/app/utils/fonts";
+import { jost, jostSemiBold } from "@/utils/fonts";
 import EmbroideryMachinePhoto from "@/public/embroidery-machine.jpeg";
 import { Button } from "@/components/ui/button";
 import { useDispatch } from "react-redux";

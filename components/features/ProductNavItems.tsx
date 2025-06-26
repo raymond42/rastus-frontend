@@ -1,6 +1,6 @@
 "use client";
+import { jost, jostSemiBold } from "@/utils/fonts";
 import React, { useState } from "react";
-import { jost, jostSemiBold } from "../utils/fonts";
 
 const productNavItems = ["HOT", "ON SALE", "TRENDING NOW", "NEW ARRIVAL"];
 

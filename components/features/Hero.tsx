@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import HeroBackground from "@/public/hero-bg.png";
-import { jost, jostSemiBold } from "@/app/utils/fonts";
+import { jost, jostSemiBold } from "@/utils/fonts";
 import Link from "next/link";
 
 const Hero = () => {

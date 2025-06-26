@@ -1,9 +1,8 @@
 "use client";
 import React from "react";
-import { montserrat, montserratBold } from "@/app/utils/fonts";
+import { montserrat, montserratBold } from "@/utils/fonts";
 import { ProductType, ColorType, SizeType } from "@/app/types/product";
 import Box from "./Box";
-import QuantitySelector from "./QuantitySelector";
 import { CiClock2, CiRuler } from "react-icons/ci";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 import { Button } from "@/components/ui/button";
@@ -12,6 +11,7 @@ import { addToCart, toggleCart } from "@/lib/redux/slices/cartSlice";
 import { useToast } from "@/hooks/use-toast";
 import { RootState } from "@/lib/redux/store";
 import { FaShoppingCart } from "react-icons/fa";
+import QuantitySelector from "./QuantitySelector";
 
 type ProductDetailsProps = {
   product: ProductType;

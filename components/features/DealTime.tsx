@@ -1,6 +1,6 @@
 "use client";
+import { jost, jostSemiBold } from "@/utils/fonts";
 import React, { useEffect, useState } from "react";
-import { jost, jostSemiBold } from "../utils/fonts";
 
 type TimeLeft = {
   hours: string;

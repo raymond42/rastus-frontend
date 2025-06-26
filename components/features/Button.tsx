@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { jostSemiBold } from "@/app/utils/fonts";
+import { jostSemiBold } from "@/utils/fonts";
 import clsx from "clsx";
 
 type ButtonProps = {

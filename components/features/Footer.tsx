@@ -3,7 +3,7 @@ import Image from "next/image";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebookF, FaSnapchatGhost, FaInstagram } from "react-icons/fa";
 import logoWithNoBackground from "@/public/logo-no-background.png";
-import { jost, jostSemiBold } from "@/app/utils/fonts";
+import { jost, jostSemiBold } from "@/utils/fonts";
 import visaIcon from "@/public/visa.png";
 import mastercarIcon from "@/public/mastercard.png";
 import mtnmomoIcon from "@/public/mtnmomo.png";
@@ -118,7 +118,7 @@ const Footer = () => {
                 key={key}
                 className={`${
                   key - 2 ? "border-b" : "border-none"
-                } flex justify-between py-2 text-center sm:text-left`}
+                } flex justify-between py-2 text-center sm:text-left gap-6`}
               >
                 <p
                   className={`${jost.className} text-[14px] text-white-secondary`}

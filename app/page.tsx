@@ -1,3 +1,4 @@
+import React from "react";
 import {
   About,
   BestSeller,
@@ -7,7 +8,7 @@ import {
   NewCollection,
   OurProducts,
   // WhatPeopleSay,
-} from "./components/index";
+} from "@/components/features";
 
 export default function Home() {
   return (
