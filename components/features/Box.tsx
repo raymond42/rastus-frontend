@@ -1,6 +1,6 @@
 import React from "react";
 import { ColorType, SizeType } from "@/app/types/product";
-import { montserrat } from "@/app/utils/fonts";
+import { montserrat } from "@/utils/fonts";
 
 type BoxProps = {
   items: ColorType[] | SizeType[];

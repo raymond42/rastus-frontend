@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ReduxProvider } from "../lib/redux/provider";
-import { CartDropdown, Navbar } from "./components";
 import { Toaster } from "@/components/ui/toaster";
 import { PageTransitionSpinner, RouteChangeHandler } from "./providers";
 import React, { Suspense } from "react";
+import { CartDropdown, Navbar } from "@/components/features";
 
 export const metadata: Metadata = {
   title: "RASTUS",

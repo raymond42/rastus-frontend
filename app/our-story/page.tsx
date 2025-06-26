@@ -1,6 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
-import { Footer, OurStory } from "@/app/components";
+import { Footer, OurStory } from "@/components/features";
 
 export const metadata: Metadata = {
   title: "Our Story - Rastus",

@@ -1,5 +1,6 @@
 import React from "react";
-import { jost, jostSemiBold } from "../utils/fonts";
+import { jost, jostSemiBold } from "@/utils/fonts";
+
 // import CardSlider from "./CardSlider";
 
 const WhatPeopleSay = () => {

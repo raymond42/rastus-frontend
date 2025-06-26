@@ -7,10 +7,10 @@ import { closeCart, removeFromCart } from "@/lib/redux/slices/cartSlice";
 import { X } from "lucide-react";
 import Image from "next/image";
 import { Trash2 } from "lucide-react";
-import { ConfirmDeleteDialog } from "./ConfirmDeleteDialog";
 import { useRouter } from "next/navigation";
 import { MouseEvent } from "react";
 import { startLoading } from "@/lib/redux/slices/loadingSlice";
+import { ConfirmDeleteDialog } from "./ConfirmDeleteDialog";
 
 export default function CartDropdown() {
   const router = useRouter();

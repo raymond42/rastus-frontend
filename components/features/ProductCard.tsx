@@ -1,7 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 import React from "react";
 import customizedHoodie from "@/public/productSeller/customized-hoodie.png";
-import { jostSemiBold, jost } from "../utils/fonts";
+import { jostSemiBold, jost } from "@/utils/fonts";
 
 import { FaShoppingCart } from "react-icons/fa";
 import { Button } from "@/components/ui/button";

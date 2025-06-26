@@ -4,7 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { montserrat, montserratBold } from "@/app/utils/fonts";
+import { montserrat, montserratBold } from "@/utils/fonts";
 import { ProductType } from "@/app/types/product";
 
 type ProductDetailsAccordionProps = {

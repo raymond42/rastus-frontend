@@ -5,9 +5,9 @@ import { useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
 import { startLoading } from "@/lib/redux/slices/loadingSlice";
 
-import { jostSemiBold } from "../utils/fonts";
-import ProductCard from "./ProductCard";
 import { Products } from "@/app/constants";
+import { jostSemiBold } from "@/utils/fonts";
+import ProductCard from "./ProductCard";
 
 const OurProducts = () => {
   const dispatch = useDispatch();

@@ -1,10 +1,10 @@
 import React from "react";
-import { jost, jostSemiBold } from "../utils/fonts";
-import DealTime from "./DealTime";
 import Button from "./Button";
 import Image from "next/image";
 import customizedCap from "@/public/customized-cap.png";
 import SquaredDots from "@/public/newCollection/squared-dots.svg";
+import { jost, jostSemiBold } from "@/utils/fonts";
+import DealTime from "./DealTime";
 
 const DealOfTheDay = () => {
   return (

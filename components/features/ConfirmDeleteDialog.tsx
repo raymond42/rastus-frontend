@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { ReactNode } from "react";
-import { ProductType } from "../types/product";
+import { ProductType } from "@/app/types/product";
 // import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 type ConfirmDeleteDialogProps = {

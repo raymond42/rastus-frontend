@@ -6,13 +6,19 @@ import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { ChevronLeft } from "lucide-react";
 
-import ProductImageDetailsWrapper from "@/app/components/ProductDetailsWrapper";
-import ProductDetailsAccordion from "@/app/components/ProductDetailsAccordion";
-import { Footer } from "@/app/components";
-import { montserrat } from "@/app/utils/fonts";
+// import ProductImageDetailsWrapper from "@/app/components/ProductDetailsWrapper";
+// import ProductDetailsAccordion from "@/app/components/ProductDetailsAccordion";
+// import { Footer } from "@/app/components";
+
+import { montserrat } from "@/utils/fonts";
 
 import { stopLoading } from "@/lib/redux/slices/loadingSlice";
 import { RootState } from "@/lib/redux/store";
+import {
+  Footer,
+  ProductImageDetailsWrapper,
+  ProductDetailsAccordion,
+} from "@/components/features";
 
 export default function ProductDetailsPage() {
   const { productId } = useParams<{ productId: string }>();
