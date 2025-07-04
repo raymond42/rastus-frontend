@@ -18,12 +18,14 @@ const ProductImageDetailsWrapper = ({
 }: Props) => {
   const [selectedColor, setSelectedColor] = useState<ColorType>(colors[0]);
   const [selectedSize, setSelectedSize] = useState<SizeType>(sizeOptions[0]);
+  const [quantity, setQuantity] = useState(1);
 
   const updatedProduct = {
     ...baseProduct,
     image: selectedColor.image,
     color: selectedColor,
     size: selectedSize,
+    quantity,
   };
 
   return (
@@ -43,6 +45,8 @@ const ProductImageDetailsWrapper = ({
           sizeOptions={sizeOptions}
           onSizeChange={setSelectedSize}
           selectedSize={selectedSize}
+          setQuantity={setQuantity}
+          quantity={quantity}
         />
       </div>
     </div>

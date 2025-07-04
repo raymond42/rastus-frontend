@@ -1,7 +1,6 @@
 import React from "react";
 import {
   About,
-  BestSeller,
   DealOfTheDay,
   Footer,
   Hero,
@@ -9,6 +8,7 @@ import {
   OurProducts,
   // WhatPeopleSay,
 } from "@/components/features";
+import HeavenlyHits from "@/components/features/HeavenlyHits";
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
       <Hero />
       <NewCollection />
       <About />
-      <BestSeller />
+      <HeavenlyHits />
       <OurProducts />
       <DealOfTheDay />
       {/* <WhatPeopleSay /> */}

@@ -1,14 +1,14 @@
-// store/slices/productsSlice.ts
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction, createSelector } from "@reduxjs/toolkit";
 import { ProductType } from "@/app/types/product";
-import { Products } from "@/app/constants"; // import your constants
+import { Products } from "@/app/constants";
+import { RootState } from "../store"; // ✅ make sure path is correct
 
 interface ProductsState {
   products: ProductType[];
 }
 
 const initialState: ProductsState = {
-  products: Products, // use your constants here
+  products: Products,
 };
 
 const productsSlice = createSlice({
@@ -21,5 +21,14 @@ const productsSlice = createSlice({
   },
 });
 
+// Memoized selectors
+const selectProducts = (state: RootState) => state.products.products;
+
+export const selectFeaturedProducts = createSelector(
+  [selectProducts],
+  (products) => products.filter((p) => p.isFeatured)
+);
+
+// Exports
 export const { setProducts } = productsSlice.actions;
 export default productsSlice.reducer;

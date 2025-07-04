@@ -1,15 +1,20 @@
 "use client";
 import React, { useState } from "react";
 
-const QuantitySelector = () => {
-  const [quantity, setQuantity] = useState(1);
+type QuantitySelectorProps = {
+  quantity: number;
+  setQuantity: (quantity: number) => void;
+};
+
+const QuantitySelector = ({ quantity, setQuantity }: QuantitySelectorProps) => {
+  // const [quantity, setQuantity] = useState(1);
 
   const handleIncrement = () => {
-    setQuantity((prev) => prev + 1);
+    setQuantity(quantity + 1);
   };
 
   const handleDecrement = () => {
-    setQuantity((prev) => (prev > 1 ? prev - 1 : prev));
+    setQuantity(quantity > 1 ? quantity - 1 : quantity);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
