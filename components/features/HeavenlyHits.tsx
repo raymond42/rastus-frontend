@@ -26,7 +26,6 @@ const SeeMoreButton = ({ className = "" }: { className?: string }) => (
 );
 
 const HeavenlyHits: React.FC = () => {
-  const [selectedItemQuantity, setSelectedItemQuantity] = React.useState(1);
   const dispatch = useDispatch();
   const { toast } = useToast();
 
@@ -35,7 +34,7 @@ const HeavenlyHits: React.FC = () => {
 
   const handleAdd = (product: ProductType) => {
     handleAddToBag({
-      product: { ...product, quantity: selectedItemQuantity },
+      product: { ...product, quantity: 1 },
       cartItems,
       dispatch,
       toast,

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 
 type QuantitySelectorProps = {
   quantity: number;
@@ -7,8 +7,6 @@ type QuantitySelectorProps = {
 };
 
 const QuantitySelector = ({ quantity, setQuantity }: QuantitySelectorProps) => {
-  // const [quantity, setQuantity] = useState(1);
-
   const handleIncrement = () => {
     setQuantity(quantity + 1);
   };
