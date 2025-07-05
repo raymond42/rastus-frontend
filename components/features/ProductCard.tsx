@@ -23,7 +23,7 @@ const ProductCard = ({
   onAddToCart,
 }: ProductCardProps) => {
   return (
-    <div className="bg-white-primary rounded-md w-[363px] shadow-sm hover:shadow-md transition-shadow">
+    <div className="bg-white-secondary rounded-md w-[363px] shadow-sm hover:shadow-md transition-shadow">
       <div className="w-full h-[387px] relative overflow-hidden rounded-t-md">
         <Image
           src={image || customizedHoodie}

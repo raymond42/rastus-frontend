@@ -200,7 +200,7 @@ export const Products: ProductType[] = [
       { name: "Cement Gray", image: cementGrayTshirt },
     ],
     ...defaultMeta,
-    isFeatured: true,
+    isFeatured: false,
   },
   {
     id: "3",
@@ -326,7 +326,7 @@ export const Products: ProductType[] = [
       { name: "Green", image: greenLongSleeveTshirts },
     ],
     ...defaultMeta,
-    isFeatured: false,
+    isFeatured: true,
   },
   {
     id: "10",
@@ -348,7 +348,7 @@ export const Products: ProductType[] = [
       { name: "White", image: whiteColarValez },
     ],
     ...defaultMeta,
-    isFeatured: false,
+    isFeatured: true,
   },
   {
     id: "11",

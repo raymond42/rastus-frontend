@@ -28,6 +28,8 @@ const SeeMoreButton = ({ className = "" }: { className?: string }) => (
 const HeavenlyHits: React.FC = () => {
   const [visibleStates, setVisibleStates] = useState<boolean[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(3); // default desktop
+
   const containerRef = useRef<HTMLDivElement>(null);
 
   const dispatch = useDispatch();
@@ -37,58 +39,95 @@ const HeavenlyHits: React.FC = () => {
   const featuredProducts = useSelector(selectFeaturedProducts);
 
   useEffect(() => {
-    const observers: IntersectionObserver[] = [];
-    const states: boolean[] = new Array(featuredProducts.length).fill(true);
-
-    const container = containerRef.current;
-    if (!container) return;
-
-    const items = container.querySelectorAll(".scroll-item");
-
-    items.forEach((el, i) => {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          states[i] = entry.intersectionRatio >= 1;
-          setVisibleStates([...states]);
-        },
-        {
-          root: container,
-          threshold: 1,
-        }
-      );
-      observer.observe(el);
-      observers.push(observer);
-    });
-
-    return () => {
-      observers.forEach((observer) => observer.disconnect());
+    const updateItemsPerPage = () => {
+      if (window.matchMedia("(max-width: 640px)").matches) {
+        setItemsPerPage(1); // mobile shows 1 item per page
+      } else {
+        setItemsPerPage(3); // desktop shows 3 items per page
+      }
     };
-  }, [featuredProducts]);
 
-  // Track active visible item for pagination dots
+    updateItemsPerPage();
+    window.addEventListener("resize", updateItemsPerPage);
+    return () => window.removeEventListener("resize", updateItemsPerPage);
+  }, []);
+
+  const totalPages = Math.ceil(featuredProducts.length / itemsPerPage);
+
+  // Scroll handler: calculate active page index based on scrollLeft and page width
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
     const onScroll = () => {
       const scrollLeft = container.scrollLeft;
-      const containerWidth = container.clientWidth;
-      const index = Math.round(scrollLeft / containerWidth);
+      const pageWidth = container.offsetWidth; // container width = one "page" width
+      const index = Math.round(scrollLeft / pageWidth);
       setActiveIndex(index);
     };
 
     container.addEventListener("scroll", onScroll);
-
     return () => container.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    let animationFrameId: number;
+
+    const updateVisibility = () => {
+      const items = container.querySelectorAll(".scroll-item");
+      const containerRect = container.getBoundingClientRect();
+      const newVisibleStates: boolean[] = [];
+
+      items.forEach((item) => {
+        const itemRect = item.getBoundingClientRect();
+        const itemWidth = itemRect.right - itemRect.left;
+        const visibleWidth =
+          Math.min(itemRect.right, containerRect.right) -
+          Math.max(itemRect.left, containerRect.left);
+        const visibilityRatio = visibleWidth / itemWidth;
+
+        // Visible if more than 90% is in view
+        newVisibleStates.push(visibilityRatio >= 0.9);
+      });
+
+      setVisibleStates(newVisibleStates);
+    };
+
+    const onScroll = () => {
+      cancelAnimationFrame(animationFrameId);
+      animationFrameId = requestAnimationFrame(updateVisibility);
+    };
+
+    updateVisibility();
+    container.addEventListener("scroll", onScroll);
+    window.addEventListener("resize", updateVisibility);
+
+    return () => {
+      container.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", updateVisibility);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, [featuredProducts]);
+
+  // Scroll to page by scrolling container by container width (page width)
   const scrollToIndex = (index: number) => {
     const container = containerRef.current;
     if (!container) return;
 
-    const containerWidth = container.clientWidth;
+    // get first scroll-item's width (assumes all same width)
+    const firstItem = container.querySelector(
+      ".scroll-item"
+    ) as HTMLElement | null;
+    if (!firstItem) return;
+
+    const itemWidth =
+      firstItem.offsetWidth + parseInt(getComputedStyle(container).gap) || 0;
+
     container.scrollTo({
-      left: containerWidth * index,
+      left: index * itemWidth,
       behavior: "smooth",
     });
   };
@@ -106,15 +145,18 @@ const HeavenlyHits: React.FC = () => {
   };
 
   return (
-    <div className="bg-primary flex sm:flex-row flex-col items-center sm:pl-[151px] sm:h-screen w-full sm:overflow-hidden h-full sm:text-start text-center">
-      <div className="flex flex-col items-center sm:items-start gap-6">
+    <div className="bg-primary flex flex-col sm:flex-row items-center sm:pl-[151px] sm:h-screen w-full overflow-hidden h-full sm:text-start text-center sm:gap-6">
+      {/* Text Section */}
+      <div className="flex flex-col items-center sm:items-start gap-6 sm:w-1/3 sm:px-24 px-6 py-8 w-full">
         <h1
-          className={`${jostSemiBold.className} text-[52px] text-white-primary`}
+          className={`${jostSemiBold.className} text-white-primary
+          text-[36px] sm:text-[52px] leading-tight sm:leading-none`}
         >
           Heavenly Hits
         </h1>
         <p
-          className={`${jost.className} text-[20px] text-white-primary px-6 sm:px-0`}
+          className={`${jost.className} text-white-primary
+          text-[16px] sm:text-[20px] px-0 sm:px-0`}
         >
           These are the best-selling products of the month. They are customer
           favorites and are highly recommended.
@@ -125,41 +167,61 @@ const HeavenlyHits: React.FC = () => {
         </div>
       </div>
 
-      <div
-        ref={containerRef}
-        className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth w-full sm:full sm:pt-32 pt-6 sm:pl-16 gap-6 hide-scrollbar"
-      >
-        {featuredProducts.map((product, key) => (
-          <div
-            key={product.id}
-            className={`scroll-item min-w-[calc(100%/3)] flex-shrink-0 snap-start transition-opacity duration-300 ${
-              visibleStates[key] === false ? "opacity-50" : "opacity-100"
-            }`}
-          >
-            <ProductCard
-              {...product}
-              isButtonDisabled={false}
-              onAddToCart={() => {
-                const cartItem = cartItems.find(
-                  (item) =>
-                    item.id === product.id &&
-                    item.size.name === product.size.name &&
-                    item.color.name === product.color.name
-                );
-                const nextQuantity = cartItem ? cartItem.quantity + 1 : 1;
+      {/* Products Section */}
+      <div className="flex flex-col sm:w-2/3 w-full">
+        <div
+          ref={containerRef}
+          className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth hide-scrollbar gap-4 px-6 sm:px-0"
+        >
+          {featuredProducts.map((product, key) => (
+            <div
+              key={product.id}
+              className={`pl-3 sm:pl-0 scroll-item flex-shrink-0 snap-start transition-opacity duration-300
+              ${visibleStates[key] === false ? "opacity-50" : "opacity-100"}
+              sm:min-w-[calc(100%/3)] 
+              w-[90vw] sm:w-auto
+            `}
+            >
+              <ProductCard
+                {...product}
+                isButtonDisabled={false}
+                onAddToCart={() => {
+                  const cartItem = cartItems.find(
+                    (item) =>
+                      item.id === product.id &&
+                      item.size.name === product.size.name &&
+                      item.color.name === product.color.name
+                  );
+                  const nextQuantity = cartItem ? cartItem.quantity + 1 : 1;
 
-                handleAdd({
-                  ...product,
-                  quantity: nextQuantity,
-                });
-              }}
+                  handleAdd({
+                    ...product,
+                    quantity: nextQuantity,
+                  });
+                }}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Pagination dots */}
+        <div className="flex sm:justify-start justify-center gap-2 sm:gap-3 sm:pt-6 w-full z-10 mt-8 sm:mt-0 px-6 sm:px-0">
+          {Array.from({ length: totalPages }).map((_, i) => (
+            <button
+              key={i}
+              onClick={() => scrollToIndex(i)}
+              className={`w-3 h-3 rounded-full transition-colors ${
+                i === activeIndex ? "bg-white-primary" : "bg-transparent border"
+              }`}
+              aria-label={`Go to page ${i + 1}`}
             />
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
-      <div className="py-10 sm:hidden block">
-        <SeeMoreButton className="flex" />
+      {/* See more button only visible on mobile */}
+      <div className="py-10 sm:hidden block px-6 w-full justify-center">
+        <SeeMoreButton className="flex w-full max-w-xs mx-auto" />
       </div>
     </div>
   );
