@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/lib/redux/store";
 import {
@@ -19,18 +19,79 @@ import { selectFeaturedProducts } from "@/lib/redux/slices/productsSlice";
 const SeeMoreButton = ({ className = "" }: { className?: string }) => (
   <Link
     href="/#products"
-    className={`hover:bg-white-primary hover:text-primary text-white-primary text-[14px] border-2 border-white-primary w-48 h-16 justify-center font-bold items-center ${className}`}
+    className={`hover:bg-white-primary hover:text-primary text-white-primary text-[14px] border-2 border-white-primary w-48 h-16 justify-center font-bold items-center flex ${className}`}
   >
     SEE MORE
   </Link>
 );
 
 const HeavenlyHits: React.FC = () => {
+  const [visibleStates, setVisibleStates] = useState<boolean[]>([]);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+
   const dispatch = useDispatch();
   const { toast } = useToast();
 
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const featuredProducts = useSelector(selectFeaturedProducts);
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+    const states: boolean[] = new Array(featuredProducts.length).fill(true);
+
+    const container = containerRef.current;
+    if (!container) return;
+
+    const items = container.querySelectorAll(".scroll-item");
+
+    items.forEach((el, i) => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          states[i] = entry.intersectionRatio >= 1;
+          setVisibleStates([...states]);
+        },
+        {
+          root: container,
+          threshold: 1,
+        }
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => {
+      observers.forEach((observer) => observer.disconnect());
+    };
+  }, [featuredProducts]);
+
+  // Track active visible item for pagination dots
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const onScroll = () => {
+      const scrollLeft = container.scrollLeft;
+      const containerWidth = container.clientWidth;
+      const index = Math.round(scrollLeft / containerWidth);
+      setActiveIndex(index);
+    };
+
+    container.addEventListener("scroll", onScroll);
+
+    return () => container.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const scrollToIndex = (index: number) => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const containerWidth = container.clientWidth;
+    container.scrollTo({
+      left: containerWidth * index,
+      behavior: "smooth",
+    });
+  };
 
   const handleAdd = (product: ProductType) => {
     handleAddToBag({
@@ -64,27 +125,36 @@ const HeavenlyHits: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex sm:flex-row flex-wrap sm:flex-nowrap justify-center sm:gap-6 gap-2 sm:pt-32 pt-6 sm:pl-16">
-        {featuredProducts.map((product) => (
-          <ProductCard
+      <div
+        ref={containerRef}
+        className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth w-full sm:full sm:pt-32 pt-6 sm:pl-16 gap-6 hide-scrollbar"
+      >
+        {featuredProducts.map((product, key) => (
+          <div
             key={product.id}
-            {...product}
-            isButtonDisabled={false}
-            onAddToCart={() => {
-              const cartItem = cartItems.find(
-                (item) =>
-                  item.id === product.id &&
-                  item.size.name === product.size.name &&
-                  item.color.name === product.color.name
-              );
-              const nextQuantity = cartItem ? cartItem.quantity + 1 : 1;
+            className={`scroll-item min-w-[calc(100%/3)] flex-shrink-0 snap-start transition-opacity duration-300 ${
+              visibleStates[key] === false ? "opacity-50" : "opacity-100"
+            }`}
+          >
+            <ProductCard
+              {...product}
+              isButtonDisabled={false}
+              onAddToCart={() => {
+                const cartItem = cartItems.find(
+                  (item) =>
+                    item.id === product.id &&
+                    item.size.name === product.size.name &&
+                    item.color.name === product.color.name
+                );
+                const nextQuantity = cartItem ? cartItem.quantity + 1 : 1;
 
-              handleAdd({
-                ...product,
-                quantity: nextQuantity,
-              });
-            }}
-          />
+                handleAdd({
+                  ...product,
+                  quantity: nextQuantity,
+                });
+              }}
+            />
+          </div>
         ))}
       </div>
 

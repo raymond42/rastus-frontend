@@ -80,12 +80,10 @@ html {
   }
 }
 
-/* Hide scrollbar for all browsers */
-.no-scrollbar {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
-
-.no-scrollbar::-webkit-scrollbar {
-  display: none; /* Safari and Chrome */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
