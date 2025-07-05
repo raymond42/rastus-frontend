@@ -117,19 +117,32 @@ const HeavenlyHits: React.FC = () => {
     const container = containerRef.current;
     if (!container) return;
 
-    // get first scroll-item's width (assumes all same width)
-    const firstItem = container.querySelector(
-      ".scroll-item"
-    ) as HTMLElement | null;
-    if (!firstItem) return;
+    if (itemsPerPage === 1) {
+      // Mobile: scroll by item width
+      const firstItem = container.querySelector(
+        ".scroll-item"
+      ) as HTMLElement | null;
+      if (!firstItem) return;
 
-    const itemWidth =
-      firstItem.offsetWidth + parseInt(getComputedStyle(container).gap) || 0;
+      const gap = parseInt(
+        getComputedStyle(container).columnGap ||
+          getComputedStyle(container).gap ||
+          "0",
+        10
+      );
+      const itemWidth = firstItem.offsetWidth + gap;
 
-    container.scrollTo({
-      left: index * itemWidth,
-      behavior: "smooth",
-    });
+      container.scrollTo({
+        left: index * itemWidth,
+        behavior: "smooth",
+      });
+    } else {
+      // Desktop: scroll by full container width (1 "page" = 3 items)
+      container.scrollTo({
+        left: index * container.offsetWidth,
+        behavior: "smooth",
+      });
+    }
   };
 
   const handleAdd = (product: ProductType) => {
