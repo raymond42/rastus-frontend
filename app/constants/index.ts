@@ -311,7 +311,7 @@ export const Products: ProductType[] = [
     category: "Jacket",
     stock: 30,
     size: defaultProductMeta.size,
-    color: defaultProductMeta.color,
+    color: { name: "Brown", image: brownJacket },
     quantity: defaultProductMeta.quantity,
     colorOptions: [
       { name: "Black", image: blackJacket },
@@ -331,7 +331,7 @@ export const Products: ProductType[] = [
     category: "T-shirt",
     stock: 30,
     size: defaultProductMeta.size,
-    color: { name: "Red", image: TshirtHeavenly },
+    color: { name: "Gray", image: TshirtHeavenly },
     quantity: defaultProductMeta.quantity,
     colorOptions: [{ name: "Gray", image: TshirtHeavenly }],
     ...defaultMeta,
@@ -371,7 +371,7 @@ export const Products: ProductType[] = [
     category: "T-shirt",
     stock: 30,
     size: defaultProductMeta.size,
-    color: defaultProductMeta.color,
+    color: { name: "Ash", image: ashColarValez },
     quantity: defaultProductMeta.quantity,
     colorOptions: [
       { name: "Ash", image: ashColarValez },
