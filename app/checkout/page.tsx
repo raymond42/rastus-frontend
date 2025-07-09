@@ -21,7 +21,6 @@ export default function CheckoutPage() {
 
   const dispatch = useDispatch();
   const cartItems = useSelector((state: RootState) => state.cart.items);
-  console.log("cartItems: ", cartItems);
 
   const subtotal = cartItems.reduce((total, item) => {
     const numericPrice = parseInt(item.price.replace(/[^\d]/g, ""), 10);
