@@ -16,7 +16,7 @@ import { useToast } from "@/hooks/use-toast";
 import { RootState } from "@/lib/redux/store";
 import { FaShoppingCart } from "react-icons/fa";
 import QuantitySelector from "./QuantitySelector";
-import { handleAddToBag } from "@/utils/helpers";
+import { formatPrice, handleAddToBag } from "@/utils/helpers";
 
 type ProductDetailsProps = {
   product: ProductType;
@@ -102,7 +102,7 @@ const ProductDetails = ({
         </h1>
         <div className="flex items-center gap-4">
           <p className={`${montserrat.className} text-[22px]`}>
-            {updatedProduct.price}
+            {formatPrice(updatedProduct.price)}
           </p>
           <RiVerifiedBadgeFill className="text-primary opacity-85" size={25} />
         </div>

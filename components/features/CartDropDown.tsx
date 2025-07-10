@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import { MouseEvent } from "react";
 import { startLoading } from "@/lib/redux/slices/loadingSlice";
 import { ConfirmDeleteDialog } from "./ConfirmDeleteDialog";
+import { formatPrice } from "@/utils/helpers";
 
 export default function CartDropdown() {
   const router = useRouter();
@@ -19,7 +20,7 @@ export default function CartDropdown() {
   const items = useSelector((state: RootState) => state.cart.items);
 
   const subtotal = items.reduce((total, item) => {
-    const numericPrice = parseInt(item.price.replace(/[^\d]/g, ""), 10);
+    const numericPrice = item.price;
     return total + numericPrice * item.quantity;
   }, 0);
 
@@ -107,7 +108,7 @@ export default function CartDropdown() {
                     <div className="flex-1 flex flex-col justify-between h-full pr-6">
                       <div className="font-medium">{item.name}</div>
                       <div className="text-sm text-gray-800 font-bold">
-                        {item.price}
+                        {formatPrice(item.price)}
                       </div>
                       <div className="text-sm text-gray-600">
                         Size: {item.size.name}, Color: {item.color.name}

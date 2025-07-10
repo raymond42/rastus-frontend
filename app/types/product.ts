@@ -4,7 +4,7 @@ export type ProductType = {
   id: string;
   name: string;
   image: StaticImageData | string;
-  price: string;
+  price: number;
   shortDescription: string;
   longDescription: string;
   rating: number;

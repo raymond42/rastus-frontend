@@ -5,10 +5,11 @@ import { jostSemiBold, jost } from "@/utils/fonts";
 
 import { FaShoppingCart } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
+import { formatPrice } from "@/utils/helpers";
 
 type ProductCardProps = {
   name: string;
-  price: string;
+  price: number;
   image: StaticImageData | string;
   rating?: number;
   isButtonDisabled?: boolean;
@@ -43,7 +44,7 @@ const ProductCard = ({
           <p
             className={`${jostSemiBold.className} text-primary text-[16px] mt-1`}
           >
-            {price}
+            {formatPrice(price)}
           </p>
         </div>
 

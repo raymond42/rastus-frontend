@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { startLoading } from "@/lib/redux/slices/loadingSlice";
+import { formatPrice } from "@/utils/helpers";
 
 export function PaymentInstructionsModal({
   amount,
@@ -40,9 +41,7 @@ export function PaymentInstructionsModal({
           <div className="space-y-4 mt-2">
             <p>
               Please send{" "}
-              <strong className="text-primary">
-                {amount.toLocaleString()}K RWF
-              </strong>{" "}
+              <strong className="text-primary">{formatPrice(amount)}</strong>{" "}
               to:
             </p>
             <div className="bg-gray-100 p-4 rounded text-center">

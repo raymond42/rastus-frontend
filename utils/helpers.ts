@@ -61,3 +61,11 @@ export const handleAddToBag = ({
   dispatch(addToCart(cartItem));
   dispatch(toggleCart());
 };
+
+export function convertToSubcurrency(amount: number, factor = 100) {
+  return Math.round(amount * factor);
+}
+
+export function formatPrice(price: number): string {
+  return `${price.toLocaleString()} FRW`;
+}

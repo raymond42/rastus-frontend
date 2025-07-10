@@ -11,6 +11,9 @@ import { PaymentInstructionsModal } from "@/components/features";
 import { stopLoading } from "@/lib/redux/slices/loadingSlice";
 import { Button } from "@/components/ui/button";
 import { jost } from "../../utils/fonts";
+import CardPaymentDialog from "@/components/features/CardPaymentDialog";
+import { formatPrice } from "@/utils/helpers";
+import { CreditCard, Smartphone } from "lucide-react"; // import icons here
 
 export default function CheckoutPage() {
   const [phone, setPhone] = useState("");
@@ -18,12 +21,13 @@ export default function CheckoutPage() {
   const [streetAddress, setStreetAddress] = useState("");
   const [showErrors, setShowErrors] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isPayWithCard, setIsPayWithCard] = useState(false);
 
   const dispatch = useDispatch();
   const cartItems = useSelector((state: RootState) => state.cart.items);
 
   const subtotal = cartItems.reduce((total, item) => {
-    const numericPrice = parseInt(item.price.replace(/[^\d]/g, ""), 10);
+    const numericPrice = item.price;
     return total + numericPrice * item.quantity;
   }, 0);
 
@@ -45,6 +49,14 @@ export default function CheckoutPage() {
     setShowErrors(false);
     setIsModalOpen(true);
   };
+  const handlePayWithCard = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setIsPayWithCard(true);
+    setIsModalOpen(false);
+    setShowErrors(false);
+  };
+
+  console.log("isPayWithCard: ", isPayWithCard);
 
   return (
     <div className="max-w-6xl mx-auto p-4 sm:px-6 grid grid-cols-1 lg:grid-cols-3 gap-8 sm:pt-44 pt-36">
@@ -144,7 +156,9 @@ export default function CheckoutPage() {
                   Quantity: {item.quantity}
                 </div>
               </div>
-              <div className="font-semibold text-sm">{item.price}</div>
+              <div className="font-semibold text-sm">
+                {formatPrice(item.price)}
+              </div>
             </div>
           ))}
         </div>
@@ -161,28 +175,42 @@ export default function CheckoutPage() {
         </div>
         <div className="flex justify-between text-sm">
           <span>Subtotal</span>
-          <span>{subtotal}K RWF</span>
+          <span>{formatPrice(subtotal)}</span>
         </div>
-
         <div className="flex justify-between font-bold text-lg border-t pt-4">
           <span>Total</span>
-          <span>{subtotal.toLocaleString()}K FRW</span>
+          <span>{formatPrice(subtotal)}</span>
         </div>
-
         {!isFormValid && showErrors && (
           <p className="text-sm text-red-500">
             Please fill in all required fields that marked with *.
           </p>
         )}
-
-        <Button className="w-full" onClick={handleProceedToPayment}>
-          Proceed to Payment
+        <Button
+          className="w-full bg-yellow-400 text-primary hover:bg-yellow-500 flex items-center justify-center gap-2"
+          onClick={handleProceedToPayment}
+        >
+          <Smartphone className="w-5 h-5" />
+          Pay with Mobile Money
         </Button>
-
+        <Button
+          className="w-full flex items-center justify-center gap-2"
+          onClick={handlePayWithCard}
+        >
+          <CreditCard className="w-5 h-5" />
+          Pay with Card
+        </Button>
         <PaymentInstructionsModal
           amount={subtotal}
           open={isModalOpen}
           onOpenChange={setIsModalOpen}
+        />
+
+        <CardPaymentDialog
+          amount={subtotal}
+          open={isPayWithCard}
+          onOpenChange={setIsPayWithCard}
+          showCancel
         />
       </div>
     </div>
